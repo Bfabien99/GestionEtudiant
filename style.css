@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+*::selection{
+    background-color: tomato;
+    color: rgba(221, 213, 213, 0.781);
+    font-style: italic;
+    scroll-behavior: smooth;
+}
+
+body{
+    scroll-behavior: smooth;
+}
+
+nav{
+    background: #5c9dff;
+    padding: 1%;
+    position: absolute;
+    width: 100%;
+}
+
+nav p{
+    font-size: 2em;
+    color: fuchsia;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    text-shadow: 0px 2px 2px black,-2px 0px 2px black;
+    animation-name: changebg;
+    background: url("dell.jpg") no-repeat center/cover;
+    animation-timing-function: ease-in;
+    animation-duration: 5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    padding: 0px 20px;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+header div.text {
+    text-align: center;
+    padding: 25px;
+    margin: 20px;
+}
+
+header a{
+    margin-top: 10%;
+    color:white;
+    text-decoration: none;
+    padding: 8px 15px;
+    background: #5c9dff;
+    border-radius: 2px;
+    margin: 1%;
+}
+
+header a:hover{
+    transition: 0.2s ease-in;
+}
+
+section{
+    min-height: 50vh;
+    background:url("pc.jpg") no-repeat center/cover;
+    width: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:50% ;
+    gap: 2em;
+    padding: 10%;
+    background-color: rgba(255, 255, 255, 0.833);
+}
+
+form h1{
+    font-size: 2em;
+}
+
+form label{
+    width:100%;
+    position: relative;
+}
+
+label .fa{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+}
+
+input{
+    width:100%;
+    min-height: 30px;
+    outline: none;
+    padding: 1.5%;
+    font-size: 1.2em;
+}
+
+form .button{
+    text-align: center;
+    width: 100%;
+    background-color: #5C9DFF;
+    color: white;
+    padding: 1%;
+    outline: none;
+    border: none;
+    font-size: 2.2em;
+}
+
+form h1{
+    color: #e859ff;
+}
+
+form a{
+    color: #e859ff;
+    text-decoration: none;
+}
+
+form a:hover{
+    color: tomato;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    background: #5C9DFF;
+    color: whitesmoke;
+    padding: 3%;
+    width: 100%;
+}
+
+@keyframes changebg{
+    0%,100%{background: url("dell.jpg") no-repeat center/cover;}
+    50%{background: url("note.jpg") no-repeat center/cover;}
+    75%{background: url("pc.jpg") no-repeat center/cover;}
+}
+
+@media screen and (max-width:850px){
+    form{
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.795);
+    }
+}
