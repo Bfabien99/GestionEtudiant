@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="listAddStudent.css">
+    <link rel="stylesheet" href="liste.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.css">
     
-    <title>Dashboard</title>
+    <title>Liste des étudiants</title>
 </head>
 <body>
      <div class="container">
@@ -76,8 +78,33 @@
                 </div>
             </div>
 
-            <div class="contenu">
-                <h1>liste des étudiants</h1>
+            <div class="contenus">
+                <h1 class="title">liste des étudiants</h1>
+
+                <div class="tableContainer">
+
+                    <table>
+                    <thead>
+                        <tr>
+                            <td>Photo</td>
+                            <td>Matricule</td>
+                            <td>Nom et prénoms</td>
+                            <td>Née le</td>
+                            <td>Contact</td>
+                            <td>Email</td>
+                            <td>Spécialité</td>
+                            <td>Scolarité</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Affichage des étudiants inscrit -->
+                    </tbody>
+                    
+                </table>
+
+                </div>
+                
+<!-- Affichage des informations de l'étudiant selectionner -->
             </div>
             
 
@@ -86,6 +113,7 @@
          
      </div>
 </body>
+<script src="liste.js"></script>
 <script>
 
 
