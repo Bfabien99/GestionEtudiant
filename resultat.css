@@ -1,4 +1,4 @@
-.contenu{
+.contenus{
    width: 100%;
    border: 1px solid;
    display: flex;
@@ -6,6 +6,7 @@
    align-items: center;
    flex-direction: column;
    gap: 2em;
+   overflow: auto;
 }
 
 .top{
@@ -37,6 +38,10 @@
 div.table{
     text-align: center;
     overflow: auto;
+}
+
+table{
+    max-width: 100%;
 }
 
 table thead tr td{

@@ -1,0 +1,82 @@
+
+#myForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content:center;
+    align-items: center;
+    gap: 2em;
+    padding: 1em;
+    background: white;
+}
+
+#myForm .formInput{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 5px;
+    max-width: 100%;
+    border: 1px solid;
+    gap: 1em;
+}
+
+#myForm .formInput h3{
+    text-align: center;
+}
+
+#myForm .formInput div{
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+#myForm .formInput div input , #myForm .formInput div #specialite{
+    width: 200px;
+    height: 25px;
+    padding: 5px 10px;
+    border-radius: 45px;
+    outline: none;
+    border: 1px solid #111;
+    margin-right: 20px;
+}
+
+.photoInput{
+    display: block !important;
+    position: relative;
+    min-height: 25px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.photoInput input{
+    z-index: 1;
+    opacity: 0;
+    border-radius: 1px !important;
+}
+
+.photoInput a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #5C9DFF;
+}
+
+.photoInput input , .photoInput a{
+    position: absolute;
+    top:0;
+    left: 0;
+    min-height: 25px !important;
+    width: 100% !important;
+    padding: 5px;
+}
+
+.submit{
+    color: #fff !important;
+    background: #1f7732;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}

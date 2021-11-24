@@ -246,29 +246,32 @@ div.listeEtudiant{
     justify-content: center;
     top: 40px;
     background-color: #fff;
-    padding: 15px;
+    padding: 0px 5px;
     max-width:100%;
     overflow: auto;
     height: 80%;
     border-radius: 25px;
+    border: 1px solid;
 }
 
 div.listeEtudiant .titre{
-    position: sticky;
+    position: absolute;
+    top: 0;
     width:100%;
-    top: -30px;
     text-align: center;
-    padding: 20px;
+    padding: 5px;
     background-color: #fff;
     margin-bottom: 10px;
 }
 
 div.listeEtudiant table{
+    position: absolute;
+    top: 50px;
     width:100%;
     border-collapse: collapse;
 }
 
-div.listeEtudiant table tr{
+div.listeEtudiant table tbody tr{
     box-shadow: 1px 0px 5px silver;
     padding: 5px;
     border-radius: 20px;
@@ -279,14 +282,15 @@ div.listeEtudiant table tr td{
     padding: 10px 1px;
 }
 
-div.listeEtudiant table tr:hover td{
+
+div.listeEtudiant table tbody tr:hover td{
     color: #fff;
     background: #5c9dff;
     cursor: pointer;
     transition: 0.2s;
 }
 
-div.listeEtudiant table tr:hover td:first-child{
+div.listeEtudiant table tbody tr:hover td:first-child{
     color: #fff;
     background: #5c9dff;
     cursor: pointer;
@@ -295,7 +299,7 @@ div.listeEtudiant table tr:hover td:first-child{
     border-bottom-left-radius: 20px;
 }
 
-div.listeEtudiant table tr:hover td:last-child{
+div.listeEtudiant table tbody tr:hover td:last-child{
     color: #fff;
     background: #5c9dff;
     cursor: pointer;
@@ -378,15 +382,16 @@ div.etudiantParSpecialite div:hover{
     }
 
     div.listeEtudiant{
-        max-height:350px;
+        min-height:250px;
+        max-height:550px;
         position: relative;
         top: 10px;
     }
 
     div.listeEtudiant div.titre{
-        position: relative;
+        position: absolute;
         background: none;
-        top: 40px;
+        top: 5px;
         
     }
 

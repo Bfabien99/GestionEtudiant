@@ -80,56 +80,53 @@
                 <div class="boiteEtudiant">
 
                     <div class="etudiantTotal">
-                        <span class="nombreEtudiant">3</span>
+                        <span class="nombreEtudiant"></span>
                         <h2>Etudiants au total</h2>
                     </div>
 
                     <div class="listeEtudiant">
+
                         <div class="titre">
                             LISTE DES ETUDIANTS
                         </div>
+
                         <table>
-                            <tr class="user1">
-                                <td><img class="photoEtudiant" style="width:50px;border-radius: 50%;object-fit: cover;" src="alex.jpg" alt=""></td>
-                                <td>Gérard Graig</td>
-                                <td>adresse@example.com</td>
-                                <td>Javascript</td>
-                            </tr>
-                            <tr class="user2">
-                                <td><img class="photoEtudiant" style="width:50px;border-radius: 50%;object-fit: cover;" src="alex.jpg" alt=""></td>
-                                <td>Alex Bertrand</td>
-                                <td>adresse@example.com</td>
-                                <td>PHP</td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <td>Photo</td>
+                                    <td>Nom et prénoms</td>
+                                    <td>Email</td>
+                                    <td>Spécialité</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
                             
-                            <tr class="user3">
-                                <td><img class="photoEtudiant" style="width:50px;border-radius: 50%;object-fit: cover;" src="alex.jpg" alt=""></td>
-                                <td>Alex Bertrand</td>
-                                <td>adresse@example.com</td>
-                                <td>Python</td>
-                            </tr>
                         </table>
+
                     </div>
+
                 </div>
 
                 <div class="etudiantParSpecialite">
                     <div>
-                        <h3>Nombre d'étudiants en Flutter</h3> <span>0</span>
+                        <h3>Nombre d'étudiants en Flutter</h3> <span class="flutterList">0</span>
                     </div>
                     <div>
-                        <h3>Nombre d'étudiants en Frond End</h3> <span>0</span>
+                        <h3>Nombre d'étudiants en Front End</h3> <span class="frontEndList">0</span>
                     </div>
                     <div>
-                        <h3>Nombre d'étudiants en JavaScript</h3> <span>1</span>
+                        <h3>Nombre d'étudiants en JavaScript</h3> <span class="javascriptList">0</span>
                     </div>
                     <div>
-                        <h3>Nombre d'étudiants en Marketing</h3> <span>0</span>
+                        <h3>Nombre d'étudiants en Marketing</h3> <span class="marketingList">0</span>
                     </div>
                     <div>
-                        <h3>Nombre d'étudiants en PHP</h3> <span>1</span>
+                        <h3>Nombre d'étudiants en PHP</h3> <span class="phpList">0</span>
                     </div>
                     <div>
-                        <h3>Nombre d'étudiants en Python</h3> <span>1</span>
+                        <h3>Nombre d'étudiants en Python</h3> <span class="pythonList">0</span>
                     </div>
                 </div>
 
@@ -138,22 +135,70 @@
          </div>
      </div>
 </body>
+<script src="dashboard.js"></script>
 <script>
-
-
 function toggleMenu() {
     let naviguation = document.querySelector('.naviguation');
     let photoAdmin = document.querySelector('.photoAdmin');
     let main = document.querySelector('.main');
     let toggle = document.querySelector('.toggle');
-    
-
     naviguation.classList.toggle('active');
     photoAdmin.classList.toggle('active');
     main.classList.toggle('active');
     toggle.classList.toggle('active');
-    
-    
 }
+
+if (localStorage.getItem('Etudiants')) {
+    var jsonString = localStorage.getItem('Etudiants');
+    var retO = JSON.parse(jsonString);
+    retO.forEach((el) => {
+    for(let pers in el){
+        // console.log(pers, " : ",el[pers])
+    }
+    const{specialite} = el;
+    
+    if(specialite==="php") {
+        let res=specialite;
+        let nombre = el; 
+        console.log(nombre);
+        document.querySelector('.phpList').innerHTML=``
+    }
+    
+    })
+}
+
+
+//Identifier le nombre d'etudiant
+const nombreEtudiant = document.querySelector('.nombreEtudiant');
+    if (localStorage.getItem('Etudiants')) {
+        nombreEtudiant.innerHTML = JSON.parse(localStorage.getItem('Etudiants')).length;
+    } else {
+            nombreEtudiant.innerHTML = 0;
+        }
+
+const parent = document.querySelector('tbody');
+
+var js = parent.getElementsByClassName("JAVASCRIPT");
+var frontEnd = parent.getElementsByClassName("FRONTEND");
+var marketing = parent.getElementsByClassName("MARKETING");
+var flutter = parent.getElementsByClassName("FLUTTER");
+var php = parent.getElementsByClassName("PHP");
+var python = parent.getElementsByClassName("PYTHON");
+
+document.querySelector('.phpList').innerHTML=`${php.length}`;
+document.querySelector('.javascriptList').innerHTML=`${js.length}`
+document.querySelector('.pythonList').innerHTML=`${python.length}`;
+document.querySelector('.flutterList').innerHTML=`${flutter.length}`;
+document.querySelector('.marketingList').innerHTML=`${frontEnd.length}`;
+document.querySelector('.frontEndList').innerHTML=`${marketing.length}`;
+
+
+document.querySelectorAll('.user').forEach(el =>{
+    el.addEventListener('click',function(){
+    var jsonString = localStorage.getItem('Etudiants');
+    var retO = JSON.parse(jsonString);
+    })
+
+})
 </script>
 </html>
