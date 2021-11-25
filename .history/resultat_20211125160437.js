@@ -24,8 +24,8 @@ function afficherEtudiantDashboard(){
                 <td> &nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
-                <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td>${arr[etudiant].pointObtenu}</td>
+                <td></td>
             </tr>
             `;
             id++;

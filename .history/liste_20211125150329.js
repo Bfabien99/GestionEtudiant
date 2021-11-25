@@ -11,8 +11,8 @@ function afficherEtudiantDashboard(){
         for (let etudiant in arr) {
             user.innerHTML += `
             <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
-                <td>&nbsp; <img class="photoEtudiant" style="width:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>
-                <td>&nbsp; 00${id} &nbsp;</td>
+                <td><img class="photoEtudiant" style="width:50px;border-radius: 50%;object-fit: cover;" src="alex.jpg" alt=""></td>
+                <td>000</td>
                 <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td> &nbsp; ${arr[etudiant].date} &nbsp;</td>
                 <td> &nbsp; ${arr[etudiant].contact} &nbsp;</td>
@@ -143,12 +143,8 @@ function afficheInfo(rid){
 }
 
 function supStudent(rid){
-    let arr = JSON.parse(localStorage.getItem('Etudiants'));
-    let ind = arr.indexOf(arr[rid]);
-
-    arr.splice(ind,1);
-
-    localStorage.setItem("Etudiants",JSON.stringify(arr));
-    document.location.reload();
-    
+        let arr = JSON.parse(localStorage.getItem('Etudiants'));
+        alert(arr[rid].prenom);
+        
+        
 }

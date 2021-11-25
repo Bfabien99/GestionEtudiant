@@ -149,6 +149,5 @@ function supStudent(rid){
     arr.splice(ind,1);
 
     localStorage.setItem("Etudiants",JSON.stringify(arr));
-    document.location.reload();
-    
+    document.location.reload()
 }

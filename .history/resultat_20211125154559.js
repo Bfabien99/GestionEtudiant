@@ -24,8 +24,8 @@ function afficherEtudiantDashboard(){
                 <td> &nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
-                <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td></td>
+                <td></td>
             </tr>
             `;
             id++;
@@ -72,7 +72,7 @@ function editData(rid){
 	id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
     contenus.innerHTML = `<form name="form" id="myForm" autocomplete="off" onsubmit="ajouterNoteEtudiant(${rid})">
-    <input type="number" name="totalObtenus" id="totalObtenus" placeholder="total Obtenus">
+    <input type="text" name="totalObtenus" id="totalObtenus" placeholder="total Obtenus">
     <input type="number" name="totalRequis" id="totalRequis" placeholder="total Requis">
     <input type="submit" value="Enregistrer" class="submit">
 </form>
@@ -82,12 +82,7 @@ function editData(rid){
 
 function ajouterNoteEtudiant(rid) {
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
-    arr[rid].pointObtenu += parseInt(document.getElementById('totalObtenus').value);
-    arr[rid].pointRequi += parseInt(document.getElementById('totalRequis').value);
-
-    arr[rid].pointObtenu=parseInt(arr[rid].pointObtenu);
-    arr[rid].pointRequi=parseInt(arr[rid].pointRequi);
-    arr[rid].appreciation = (arr[rid].pointObtenu * 100) /arr[rid].pointRequi;
+    arr[rid].pointObtenu += Number(document.getElementById('totalObtenus').value);
     localStorage.setItem("Etudiants",JSON.stringify(arr));
 }
 

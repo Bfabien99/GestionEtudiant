@@ -23,9 +23,9 @@ function afficherEtudiantDashboard(){
                 <td>&nbsp; 00${id}</td>
                 <td> &nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
-                <td>${arr[etudiant].pointObtenu}</td>
-                <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td>${arr[etudiant].pointObtenu</td>
+                <td></td>
+                <td></td>
             </tr>
             `;
             id++;
@@ -82,13 +82,8 @@ function editData(rid){
 
 function ajouterNoteEtudiant(rid) {
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
-    arr[rid].pointObtenu += parseInt(document.getElementById('totalObtenus').value);
-    arr[rid].pointRequi += parseInt(document.getElementById('totalRequis').value);
+    arr[rid].pointRequi = document.getElementById('totalRequis').value;
 
-    arr[rid].pointObtenu=parseInt(arr[rid].pointObtenu);
-    arr[rid].pointRequi=parseInt(arr[rid].pointRequi);
-    arr[rid].appreciation = (arr[rid].pointObtenu * 100) /arr[rid].pointRequi;
-    localStorage.setItem("Etudiants",JSON.stringify(arr));
 }
 
 

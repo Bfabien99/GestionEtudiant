@@ -150,5 +150,5 @@ function supStudent(rid){
 
     localStorage.setItem("Etudiants",JSON.stringify(arr));
     document.location.reload();
-    
+    location.href="liste.html";
 }

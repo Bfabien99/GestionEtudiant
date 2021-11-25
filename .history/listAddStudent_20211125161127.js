@@ -55,7 +55,7 @@ function ajouterEtudiant() {
      var jsonString = localStorage.getItem('Etudiants');
      var retO = JSON.parse(jsonString);
      retO.forEach((el) => {
-         console.log(el.photo);
+         console.log(el.specialite);
      })
     
  }

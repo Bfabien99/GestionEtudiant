@@ -144,11 +144,7 @@ function afficheInfo(rid){
 
 function supStudent(rid){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
-    let ind = arr.indexOf(arr[rid]);
-
-    arr.splice(ind,1);
-
-    localStorage.setItem("Etudiants",JSON.stringify(arr));
-    document.location.reload();
-    
+    let ind = this.arr.indexOf(this.arr[rid])
+        alert(rid);
+        alert(ind);
 }

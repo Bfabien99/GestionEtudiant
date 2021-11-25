@@ -19,7 +19,7 @@ function afficherEtudiantDashboard(){
                 <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>&nbsp; ${arr[etudiant].scolarite}</td>
-                <td>&nbsp; <button onclick="event.stopPropagation();supStudent(${etudiant})"><span class="fa fa-times"></span></button> </td>
+                <td>&nbsp; <button onclick="event.stopPropagation();supStudent(${id})"><span class="fa fa-times"></span></button> </td>
             </tr>
             `;
             id++;
@@ -142,13 +142,6 @@ function afficheInfo(rid){
 `;
 }
 
-function supStudent(rid){
-    let arr = JSON.parse(localStorage.getItem('Etudiants'));
-    let ind = arr.indexOf(arr[rid]);
-
-    arr.splice(ind,1);
-
-    localStorage.setItem("Etudiants",JSON.stringify(arr));
-    document.location.reload();
-    
+function supStudent(id){
+        alert(id)
 }

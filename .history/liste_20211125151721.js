@@ -145,10 +145,11 @@ function afficheInfo(rid){
 function supStudent(rid){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
     let ind = arr.indexOf(arr[rid]);
+    if(ind > -1){
+        arr.splice(ind,1);
+    }
 
-    arr.splice(ind,1);
-
-    localStorage.setItem("Etudiants",JSON.stringify(arr));
-    document.location.reload();
-    
+    localStorage.setItem("Etudiants",JSON.)
+        alert(rid);
+        alert(ind);
 }

@@ -8,7 +8,8 @@ const contactsParentEtudiant = document.getElementById('contactsParent');
 const specialiteEtudiant = document.getElementById('specialite');
 const scolariteEtudiant = document.getElementById('scolarite');
 const photoEtudiant = document.getElementById('addPhoto');
-
+let totalObtenus = document.getElementById('totalObtenus');
+let totalRequis = document.getElementById('totalRequis');
 
 
 photoEtudiant.addEventListener("change",function(){
@@ -50,14 +51,14 @@ function ajouterEtudiant() {
 }
 
 
- if (localStorage.getItem('Etudiants')) {
+// if (localStorage.getItem('Etudiants')) {
 
-     var jsonString = localStorage.getItem('Etudiants');
-     var retO = JSON.parse(jsonString);
-     retO.forEach((el) => {
-         console.log(el.photo);
-     })
+//     var jsonString = localStorage.getItem('Etudiants');
+//     var retO = JSON.parse(jsonString);
+//     retO.forEach((el) => {
+//         console.log(el.specialite);
+//     })
     
- }
+// }
 
 

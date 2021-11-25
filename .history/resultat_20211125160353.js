@@ -24,8 +24,8 @@ function afficherEtudiantDashboard(){
                 <td> &nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
-                <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td></td>
+                <td></td>
             </tr>
             `;
             id++;
@@ -87,7 +87,7 @@ function ajouterNoteEtudiant(rid) {
 
     arr[rid].pointObtenu=parseInt(arr[rid].pointObtenu);
     arr[rid].pointRequi=parseInt(arr[rid].pointRequi);
-    arr[rid].appreciation = (arr[rid].pointObtenu * 100) /arr[rid].pointRequi;
+    arr[rid].appreciation = 
     localStorage.setItem("Etudiants",JSON.stringify(arr));
 }
 
