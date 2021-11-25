@@ -1,0 +1,112 @@
+.formulaire{
+    display:block;
+    border: 1px solid black;
+    margin: 50px;
+    padding: 50px;
+    text-align: center;
+    width:600px;
+    height: 600px;
+    border-radius: 10px;
+}
+
+.info{
+    position: relative;
+    display: block;
+    justify-content: center;
+    height: 500px;
+    margin: 10px;
+    width: 500px;
+    height: auto;
+    top: 200px;
+    border-radius: 10px;
+    
+}
+
+
+.image{
+    position:relative;
+    width: 100px;
+    height: 100px;
+    background: url(pc.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    text-align: center;
+    top: 80px;
+    left: 200px;
+    
+}
+
+button{
+    color: #fff;
+    background-color: green;
+    width: 50px;
+    height: 20px;
+    margin-left: 50px;
+    
+}
+
+
+
+
+
+/**/
+
+@media screen and (max-width:850px){
+    div.naviguation{
+        width: 60px;
+    }
+    
+    div.photoAdmin{
+        width: 60px;
+        height: 200px;
+        border-radius: 15px;
+    }
+    
+    div.main{
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+}
+
+@media screen and (max-width:600px){
+    
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    div.contenus{
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+    }
+
+    div.boiteEtudiant{
+        width: 100%;
+    }
+
+    div.listeEtudiant{
+        max-height:350px;
+        position: relative;
+        top: 10px;
+    }
+
+    div.listeEtudiant div.titre{
+        position: relative;
+        background: none;
+        top: 40px;
+        
+    }
+
+    div.listeEtudiant table{
+        margin-top: 10px;
+    }
+
+    div.etudiantParSpecialite{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 100%;
+    }
+}

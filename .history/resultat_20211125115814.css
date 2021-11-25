@@ -1,0 +1,165 @@
+.contenus{
+   width: 100%;
+   border: 1px solid;
+   display: flex;
+   justify-content: center; 
+   align-items: center;
+   flex-direction: column;
+   gap: 2em;
+   overflow: auto;
+}
+
+.top{
+    width: 80%;
+    text-align: center;
+}
+
+.top label{
+    width: 100%;
+    position: relative;
+}
+
+.top input{
+    outline: none;
+    border: 1px solid #111;
+    padding: 0px 5px;
+    width: 50%;
+    border-radius: 40px;
+    height: 30px;
+}
+
+.top .fa{
+    position: absolute;
+    top: 4px;
+    right: 0px; 
+    padding-right: 20px; 
+}
+
+div.table{
+    text-align: center;
+    overflow: auto;
+}
+
+table{
+    max-width: 100%;
+}
+
+table thead tr td{
+    border: 1px dotted;
+    text-align: center;
+}
+
+table tbody tr{
+    box-shadow: 1px 1px 5px rgb(211, 211, 211);
+}
+
+table tbody tr td{
+    border-collapse:collapse;
+    text-align: center;
+    padding: 1em;
+}
+
+table tbody tr.user img{
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+table tbody tr.user1 td:last-child p.color, tr.user3 td:last-child p.color{
+    background-color: orange;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+table tbody tr.user2 td:last-child p.color{
+    background-color: rgb(42, 187, 13);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+div.infoEtudiant{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin: 5px;
+    display: none;
+    width: 100%;
+    border: 1px solid black;
+}
+
+div.box{
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    min-width: 500px;
+    padding: 1em;
+}
+
+div.box div.infoLeft{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 1em;
+}
+
+div.box div.infoLeft div.img{
+    width: 300px;
+    height: 400px;
+    background: url('alex.jpg') no-repeat center/cover;
+}
+
+div.box div.infoRight div.specialite{
+    border-radius: 50px;
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+    background: silver;
+    color: #5C9DFF;
+}
+
+div.box div.infoRight div.appreciation p.color{
+    border-radius: 50px;
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+    background: orange;
+}
+
+div.box div.infoRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+
+div.ajouterNoteEtudiant{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin: 5px;
+    display: none;
+}
+
+
+
+a.add , a.back , a.valider{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: #5C9DFF;
+    width: 100px;
+    padding: 10px 5px;
+}
+
+a.back{
+    background: #209655;
+}

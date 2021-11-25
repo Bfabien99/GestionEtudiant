@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="parametre.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <title>Dashboard</title>
+</head>
+<body>
+     <div class="container">
+
+         <div class="naviguation">
+                <div class="boiteAdmin">
+                    <div class="photoAdmin"></div>
+                    <p>ADMIN</p>
+                </div>
+             <ul>
+                 <li>
+                     <a href="#">
+                     <span class="icone"><i class="fa fa-home" aria-hidden="true"></i></span>
+                     <span class="titre">Accueil</span>
+                    </a>
+                 </li>
+                 <li>
+                    <a href="#">
+                    <span class="icone"><i class="fa fa-users" aria-hidden="true"></i></span>
+                    <span class="titre">Espace Etudiants</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <span class="icone"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+                    <span class="titre">Paramètres</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                    <span class="icone"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span>
+                    <span class="titre">Déconnexion</span>
+                    </a>
+                </li>
+            </ul>
+
+         </div>
+
+
+         <div class="main">
+
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></div>
+                <div class="search">
+                    <label for="search">
+                        <input type="search" name="search" id="search" placeholder="faire une recherche...">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Modifications à partir d'ici -->
+           <div class="formulaire">
+               <h2> Informations</h2>
+              <div class="image"></div>
+                  
+                <div class="info">
+                    <div>
+                    <label for="name">Nom</label>
+                    XXXXXXXXXXX
+                </div>
+
+                <div>
+                    <label for="prenoms">Prenoms</label>
+                    XXXXXXXXXXXXXXXXX
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    XXXXXXX@gmail.com
+                </div>
+
+                <div>
+                    <label for="identifiant">Identifiant</label>
+                    XXXXXXXXXXXXXXXXXXX
+                </div>
+
+                <div>   
+                   <a href="parametreModif.html"><button>Modifier</button></a>
+                </div>  
+                </div>
+
+           </div>
+
+         </div>
+     </div>
+     
+     
+</body>
+<script>
+
+
+function toggleMenu() {
+    let naviguation = document.querySelector('.naviguation');
+    let photoAdmin = document.querySelector('.photoAdmin');
+    let main = document.querySelector('.main');
+    let toggle = document.querySelector('.toggle');
+    
+
+    naviguation.classList.toggle('active');
+    photoAdmin.classList.toggle('active');
+    main.classList.toggle('active');
+    toggle.classList.toggle('active');
+    
+    
+}
+</script>
+</html>

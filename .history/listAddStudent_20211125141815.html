@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="listAddStudent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    
+    <title>Ajouter un nouvel étudiant</title>
+</head>
+<body>
+     <div class="container">
+
+         <div class="naviguation">
+                <div class="boiteAdmin">
+                    <div class="photoAdmin"></div>
+                    <p>ADMIN</p>
+                </div>
+             <ul class="navul">
+                 <li>
+                     <a href="dashboard.html">
+                     <span class="icone"><i class="fa fa-home" aria-hidden="true"></i></span>
+                     <span class="titre">Accueil</span>
+                    </a>
+                 </li>
+
+                 <li class="dropdown">
+                    <a href="#">
+                    <span class="icone"><i class="fa fa-users" aria-hidden="true"></i></span>
+                    <span class="titre">Espace Etudiants</span>
+                    </a>
+                    <ul class="sousMenu">
+                        <li>
+                            <a href="liste.html">
+                            <span class="icone"><i class="fa fa-list-ul" aria-hidden="true"></i></span>
+                            <span class="titre">Liste</span>
+                           </a>
+                        </li>
+                        <li>
+                            <a href="resultat.html">
+                            <span class="icone"><i class="fa fa-check-double" aria-hidden="true"></i></span>
+                            <span class="titre">Résultats</span>
+                           </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="parametres.html">
+                    <span class="icone"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+                    <span class="titre">Paramètres</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                    <span class="icone"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span>
+                    <span class="titre">Déconnexion</span>
+                    </a>
+                </li>
+            </ul>
+
+         </div>
+
+
+         <div class="main">
+
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></div>
+                <div class="search">
+                    <label for="search">
+                        <input type="search" name="search" id="search" placeholder="faire une recherche...">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+                </div>
+            </div>
+
+            <div class="contenus">
+
+                <form name="form" id="myForm" >
+                    
+
+                    <div class="formInput">
+                        <h3>Formulaire d'enregistrement</h3>
+                        <div>
+                           <label for="nom">Nom</label>
+                        <input type="text" name="nom" id="nom" > 
+                        </div>
+                        
+                        <div>
+                          <label for="prenom">Prenom</label>
+                        <input type="text" name="prenom" id="prenom" >  
+                        </div>
+
+                        <div>
+                           <label for="date">Date de naissance</label>
+                        <input type="date" name="date" id="date" > 
+                        </div>
+                        
+                        <div>
+                            <label for="email">Email</label>
+                        <input type="email" name="email" id="email" >
+                        </div>
+
+                        <div>
+                           <label for="contacts">Contact</label>
+                        <input type="number" name="contacts" id="contacts"> 
+                        </div>
+
+                        <div>
+                            <label for="contactsParent">Contact des parents</label>
+                        <input type="number" name="contactsParent" id="contactsParent" >
+                        </div>
+
+                        <div>
+                            <label for="specialite">Spécialité</label>
+                            <select name="specialite" id="specialite">
+                                <option value="aucun">-- spécialité --</option>
+                                <option value="flutter">FLUTTER</option>
+                                <option value="frontEnd">FRONT-END</option>
+                                <option value="javaScript">JAVASCRIPT</option>
+                                <option value="marketing">MARKETING DIGITAL</option>
+                                <option value="php">PHP</option>
+                                <option value="python">PYTHON</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="scolarite">Montant versé</label>
+                        <input type="number" name="scolarite" id="scolarite" >
+                        </div>
+
+                        <!-- <div>
+                            <label for="couleur">Choix couleur</label>
+                        <input type="color" name="couleur" id="couleur">
+                        </div> -->
+                        <div name="form" id="myForm" autocomplete="off" style="display:none ;">
+                            <input type="number" name="totalObtenus" id="totalObtenus" placeholder="total Obtenus">
+                            <input type="number" name="totalRequis" id="totalRequis" placeholder="total Requis">
+                            <input type="submit" value="Enregistrer" class="submit">
+                        </div>
+                        
+                        <div class="photoInput">
+                            <input type="file" name="addPhoto" id="addPhoto" value="Ajouter photo" >
+                            <a >Ajouter une photo</a>
+                        </div>
+                    
+                    </div>
+                    
+                    <input type="submit" value="Enregistrer" class="submit">
+                </form>
+
+                <div class="box">
+
+                </div>
+            </div>
+            
+
+         </div>
+
+         
+     </div>
+</body>
+<script>
+function toggleMenu() {
+    let naviguation = document.querySelector('.naviguation');
+    let photoAdmin = document.querySelector('.photoAdmin');
+    let main = document.querySelector('.main');
+    let toggle = document.querySelector('.toggle');
+    
+    naviguation.classList.toggle('active');
+    photoAdmin.classList.toggle('active');
+    main.classList.toggle('active');
+    toggle.classList.toggle('active'); 
+}
+</script>
+
+<script src="listAddStudent.js"></script>
+</html>
