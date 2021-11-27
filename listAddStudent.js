@@ -14,8 +14,8 @@ const photoEtudiant = document.getElementById('addPhoto');
 photoEtudiant.addEventListener("change",function(){
     const reader = new FileReader();
 
-    reader.addEventListener('load',()=>{
-        console.log(reader.result);
+    reader.addEventListener('load',(e)=>{
+        photoEtudiant.src = reader.result;
     });
 
     reader.readAsDataURL(this.files[0]);
@@ -40,7 +40,7 @@ function ajouterEtudiant() {
         contactParent:contactsParentEtudiant.value,
         specialite:specialiteEtudiant.value.toUpperCase(),
         scolarite:scolariteEtudiant.value,
-        photo:photoEtudiant.value,
+        photo:photoEtudiant.src,
         pointObtenu: 0,
         pointRequi: 0,
         appreciation:0

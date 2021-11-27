@@ -19,7 +19,7 @@ function afficherEtudiantDashboard(){
         for (let etudiant in arr) {
             tbody.innerHTML += `
             <tr class="user" id="${id}" onclick="afficheInfo(${etudiant})">
-                <td><img class="photoEtudiant" style="width:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
                 <td>&nbsp; 00${id}</td>
                 <td> &nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
@@ -41,43 +41,46 @@ function afficherEtudiantDashboard(){
 function afficheInfo(rid){
 	id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
-    contenus.innerHTML = `<div class="afficheInfo">
-    <div class="box">
+    contenus.innerHTML = `<div class="affichebox">
+    <div class="afficheInfo">
+    <div class="boxs">
         <div class="infoLeft">
-            <div class="img"></div>
-            <div class="specialite">${arr[rid].specialite}</div>
-            <div class="scolarite">
-                <h3>Scolarité</h3>
-                <p class="mv">Montant Versé</p>
-                <p class="somme">${arr[rid].scolarite}</p>
-                <p p class="rp">Reste à payer</p>
-                <p class="somme"></p>
-            </div>
+            <div class="img" style="background: url('${arr[rid].photo}') no-repeat center/cover"></div>
         </div>
         <div class="infoRight">
-            <p>Nom & Prénoms : ${arr[rid].nom} ${arr[rid].prenom}</p>
-            <p>Date de naissance : ${arr[rid].date}</p>
-            <p>Contact : ${arr[rid].contact}</p>
-            <p>Email : ${arr[rid].email}</p>
-            <p>Contact Parent : ${arr[rid].contactParent}</p>
+            <p>Nom & Prénoms :<strong> ${arr[rid].nom} ${arr[rid].prenom}</strong></p>
+            <p>Total des points obtenus : ${arr[rid].pointObtenu}</p>
+            <p>Total des points requis : ${arr[rid].pointRequi}</p>
+            <p>Appreciation : ${arr[rid].appreciation}</p>
             <button onclick="editData(${rid})"><span class="fa fa-pen"></span></button>
         </div>
     </div>
-</div>
+    </div>
 <a href="resultat.html" class="retour">Retour</a>
+</div>
 `;
 }
 
 function editData(rid){
 	id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
-    contenus.innerHTML = `<form name="form" id="myForm" autocomplete="off" onsubmit="ajouterNoteEtudiant(${rid})">
+    contenus.innerHTML = `<div class="formbox">
+    <form name="form" id="myForm" autocomplete="off" onsubmit="ajouterNoteEtudiant(${rid})">
+    <div class="img">
+    <img src="${arr[rid].photo}" alt=""></div>
+    <div class="divInput">
+
+    <label for="obtenu">Total obtenu :</label>
     <input type="number" name="totalObtenus" id="totalObtenus" placeholder="total Obtenus">
+
+    <label for="requis">Total requis :</label>
     <input type="number" name="totalRequis" id="totalRequis" placeholder="total Requis">
+
     <input type="submit" value="Enregistrer" class="submit">
+    </div>
 </form>
     <a href="resultat.html">annuler</a>
-</form>`;
+</div>`;
 }
 
 function ajouterNoteEtudiant(rid) {

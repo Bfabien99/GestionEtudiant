@@ -11,7 +11,7 @@ function afficherEtudiantDashboard(){
         for (let etudiant in arr) {
             user.innerHTML += `
             <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
-                <td><img class="photoEtudiant" style="width:50px;border-radius: 50%;object-fit: cover;" src="alex.jpg" alt=""></td>
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
                 <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
@@ -26,10 +26,11 @@ function afficheInfo(rid){
 	id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
     let mr = 600000 - arr[rid].scolarite;
-    contenus.innerHTML = `<div class="afficheInfo">
+    contenus.innerHTML = `<div class="affichebox">
+    <div class="afficheInfo">
     <div class="box">
         <div class="infoLeft">
-            <div class="img"></div>
+            <div class="img" style="background: url('${arr[rid].photo}') no-repeat center/cover"></div>
             <div class="specialite">${arr[rid].specialite}</div>
             <div class="scolarite">
                 <h3>Scolarité</h3>
@@ -48,7 +49,8 @@ function afficheInfo(rid){
             <button onclick="editData(${rid})" style="display:none;"><span class="fa fa-pen"></span></button>
         </div>
     </div>
-    <a href="dashboard.html" class="retour">Retour</a>
+    </div>
+<a href="dashboard.html" class="retour">Retour</a>
 </div>
 
 `;

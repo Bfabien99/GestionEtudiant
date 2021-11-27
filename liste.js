@@ -11,7 +11,7 @@ function afficherEtudiantDashboard(){
         for (let etudiant in arr) {
             user.innerHTML += `
             <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
-                <td>&nbsp; <img class="photoEtudiant" style="width:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>
+                <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>
                 <td>&nbsp; 00${id} &nbsp;</td>
                 <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td> &nbsp; ${arr[etudiant].date} &nbsp;</td>
@@ -19,7 +19,7 @@ function afficherEtudiantDashboard(){
                 <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>&nbsp; ${arr[etudiant].scolarite}</td>
-                <td>&nbsp; <button onclick="event.stopPropagation();supStudent(${etudiant})"><span class="fa fa-times"></span></button> </td>
+                <td>&nbsp; <button onclick="event.stopPropagation();supStudent(${etudiant})"><span class="fa fa-trash"></span></button> </td>
             </tr>
             `;
             id++;
@@ -118,7 +118,8 @@ function afficheInfo(rid){
     contenus.innerHTML = `<div class="afficheInfo">
     <div class="box">
         <div class="infoLeft">
-            <div class="img"></div>
+            <div class="img" style="background: url('${arr[rid].photo}') no-repeat center/cover">
+            </div>
             <div class="specialite">${arr[rid].specialite}</div>
             <div class="scolarite">
                 <h3>Scolarité</h3>
@@ -145,10 +146,12 @@ function afficheInfo(rid){
 function supStudent(rid){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
     let ind = arr.indexOf(arr[rid]);
+    if(confirm(`Voulez vous vraiment supprimer ${arr[rid].nom} ${arr[rid].prenom}` )){
+      arr.splice(ind,1);
 
-    arr.splice(ind,1);
-
-    localStorage.setItem("Etudiants",JSON.stringify(arr));
-    document.location.reload();
+        localStorage.setItem("Etudiants",JSON.stringify(arr));
+        document.location.reload();  
+    }
+    
     
 }

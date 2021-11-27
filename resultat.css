@@ -1,14 +1,17 @@
 .contenus{
    width: 100%;
-   border: 1px solid;
-   display: flex;
-   justify-content: center; 
-   align-items: center;
-   flex-direction: column;
-   gap: 2em;
    overflow: auto;
-   position: relative;
-   background-color: white !important;
+}
+
+.resultatBox{
+    width: 90%;
+    background-color:rgb(255, 255, 255);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+    margin: 0 auto;
 }
 
 .top{
@@ -39,22 +42,43 @@
     padding-right: 20px; 
 }
 
-div.table{
+div.resultatEtudiant{
+    max-width: 80%;
     text-align: center;
     overflow: auto;
+    background-color: #fff;
+    margin: 0 auto;
+    max-height: 400px;
+    overflow: auto;
+    position: absolute;
+    top: 150px;
 }
 
 table{
     max-width: 100%;
+    background-color: #fff;
+    margin: 0 auto;
 }
 
 table thead tr td{
-    border: 1px dotted;
+    border:2px solid transparent;
+    border-top-color: rgb(0, 0, 0) ;
     text-align: center;
+    padding: 10px;
+    font-weight: 700;
 }
 
 table tbody tr{
     box-shadow: 1px 1px 5px rgb(211, 211, 211);
+}
+
+table tbody tr:hover{
+    cursor: pointer;
+}
+
+table tbody tr td:hover{
+    border: 2px solid transparent;
+    border-bottom-color:black ;
 }
 
 table tbody tr td{
@@ -66,20 +90,6 @@ table tbody tr td{
 table tbody tr.user img{
     width: 50px;
     object-fit: cover;
-    border-radius: 50%;
-}
-
-table tbody tr.user1 td:last-child p.color, tr.user3 td:last-child p.color{
-    background-color: orange;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-table tbody tr.user2 td:last-child p.color{
-    background-color: rgb(42, 187, 13);
-    width: 30px;
-    height: 30px;
     border-radius: 50%;
 }
 
@@ -95,17 +105,30 @@ div.infoEtudiant{
     border: 1px solid black;
 }
 
-div.box{
+.affichebox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    gap: 1em;
+}
+
+.afficheInfo{
+    background-color: white;
+    max-width: 90%;
+    border: 1px solid black;
+}
+
+div.boxs{
     display: flex;
     gap: 1em;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
-    min-width: 500px;
     padding: 1em;
 }
 
-div.box div.infoLeft{
+div.boxs div.infoLeft{
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -113,13 +136,13 @@ align-items: center;
 gap: 1em;
 }
 
-div.box div.infoLeft div.img{
-    width: 300px;
-    height: 400px;
+div.boxs div.infoLeft div.img{
+    width: 100px;
+    height: 200px;
     background: url('alex.jpg') no-repeat center/cover;
 }
 
-div.box div.infoRight div.specialite{
+div.boxs div.infoRight div.specialite{
     border-radius: 50px;
     width: 100%;
     padding: 10px 5px;
@@ -128,29 +151,13 @@ div.box div.infoRight div.specialite{
     color: #5C9DFF;
 }
 
-div.box div.infoRight div.appreciation p.color{
-    border-radius: 50px;
-    width: 100%;
-    padding: 10px 5px;
-    text-align: center;
-    background: orange;
-}
-
-div.box div.infoRight{
+div.boxs div.infoRight{
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1em;
 }
 
-.resultatEtudiant{
-    max-width: 90%;
-    max-height: 400px;
-    overflow: auto;
-    position: absolute;
-    top: 150px;
-    border: 1px solid silver;
-}
 
 a.add , a.back , a.valider{
     text-align: center;
@@ -163,4 +170,49 @@ a.add , a.back , a.valider{
 
 a.back{
     background: #209655;
+}
+
+.formbox{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items:center;
+    width: 90%;
+    background-color:white;
+    margin: 0 auto;
+}
+
+#myForm{
+    max-width: 90%;
+    display: flex;
+    justify-content: space-around;
+    gap: 2em;
+    padding: 10px 5px;
+    background-color: white;
+    border:1px solid;
+}
+
+#myForm .img{
+    width: 100px;
+    min-height: 100px;
+    border: 1px solid;
+}
+
+#myForm .img img{
+    width: 100%;
+    height: 100%;
+}
+
+.divInput{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items:center;
+    gap: 1em;
+}
+
+.divInput input{
+    outline: none;
+    border: 1px solid black;
+    padding:10px 12px;
 }
