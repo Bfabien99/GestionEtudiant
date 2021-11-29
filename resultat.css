@@ -93,6 +93,29 @@ table tbody tr.user img{
     border-radius: 50%;
 }
 
+.orange , .vert, .rouge{
+    text-align: center;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.orange{
+    background-color: tomato;
+    color: tomato;
+}
+
+.rouge{
+    background-color: rgb(252, 0, 0);
+    color: rgb(252, 0, 0);
+}
+
+.vert{
+    background-color: green;
+    color: green;
+}
+
 div.infoEtudiant{
     display: flex;
     flex-direction: column;
