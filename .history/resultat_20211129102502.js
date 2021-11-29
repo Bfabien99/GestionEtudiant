@@ -25,14 +25,18 @@ function afficherEtudiantDashboard(){
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
                 <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td><p class="appreciation">${arr[etudiant].appreciation}</p></td>
             </tr>
             `;
             id++;
-        if(arr[etudiant].appreciation < 50){
-            console.log(arr[etudiant].appreciation);
+            let result = document.querySelectorAll('.appreciation');
             
-        }
+            result.forEach(el=>{
+                let arr = JSON.parse(localStorage.getItem('Etudiants'));
+                if(arr[etudiant]){}
+                el.style.background="red"
+            })
+        
 
         }
             

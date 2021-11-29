@@ -30,7 +30,7 @@ function afficherEtudiantDashboard(){
             `;
             id++;
         if(arr[etudiant].appreciation < 50){
-            console.log(arr[etudiant].appreciation);
+            console.log(arr[etudiant].getElementById());
             
         }
 

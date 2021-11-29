@@ -25,13 +25,13 @@ function afficherEtudiantDashboard(){
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
                 <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td class="app">${arr[etudiant].appreciation}</td>
             </tr>
             `;
             id++;
         if(arr[etudiant].appreciation < 50){
             console.log(arr[etudiant].appreciation);
-            
+            document.querySelector('.app')
         }
 
         }

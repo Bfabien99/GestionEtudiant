@@ -25,13 +25,14 @@ function afficherEtudiantDashboard(){
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
                 <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td><p class="appreciation">${arr[etudiant].appreciation}</p></td>
             </tr>
             `;
             id++;
+            let result = document.querySelector('.appreciation');
         if(arr[etudiant].appreciation < 50){
             console.log(arr[etudiant].appreciation);
-            
+            arr[etudiant].result.style.background="red"
         }
 
         }

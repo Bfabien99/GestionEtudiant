@@ -23,26 +23,16 @@ photoEtudiant.addEventListener("change",function(){
 
 myForm.addEventListener('submit', function(e){
     e.preventDefault();
-    if (nomEtudiant.value!=="" && prenomEtudiant.value!=="") {
-       ajouterEtudiant();
-    myForm.reset(); 
-    }
-    else{
-        nomEtudiant.style.border="2px solid tomato";
-        nomEtudiant.placeholder="Remplissez ce champ !"
-        prenomEtudiant.style.border="2px solid tomato";
-        prenomEtudiant.placeholder="Remplissez ce champ !"
-    }
+    ajouterEtudiant();
+    myForm.reset();
 })
 
 
 //Sauvegarder les données de l'étudiant
 function ajouterEtudiant() {
     let etudiant = JSON.parse(localStorage.getItem('Etudiants')) || [];
-    let exist = etudiant.length && JSON.parse(localStorage.getItem('Etudiants')).some(data => data.nom.toUpperCase() == nomEtudiant.value.toUpperCase() && data.prenom.toUpperCase() == prenomEtudiant.value.toUpperCase());
-    
-    if (!exist) {
-        etudiant.push({
+    let exist
+    etudiant.push({
         nom:nomEtudiant.value.toUpperCase(),
         prenom:prenomEtudiant.value.toUpperCase(),
         date:dateEtudiant.value,
@@ -58,12 +48,6 @@ function ajouterEtudiant() {
     });
 
     localStorage.setItem('Etudiants',JSON.stringify(etudiant));
-    }
-
-    else{
-        alert("Desole, l'étudiant existe déja!")
-    }
-    location.href="liste.html";
 }
 
 

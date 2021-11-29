@@ -25,14 +25,10 @@ function afficherEtudiantDashboard(){
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
                 <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td><p class="appreciation" >${arr[etudiant].appreciation}</p></td>
             </tr>
             `;
             id++;
-        if(arr[etudiant].appreciation < 50){
-            console.log(arr[etudiant].appreciation);
-            
-        }
 
         }
             
@@ -40,6 +36,15 @@ function afficherEtudiantDashboard(){
     }
 }
 
+function Appreciation(etudiant){
+    let arr = JSON.parse(localStorage.getItem('Etudiants'));
+    let result = document.querySelector('.appreciation');
+        if(arr[etudiant].appreciation <= 40){
+            result.style.background="red";
+        }else if(arr[etudiant].appreciation <= 64){
+            result.style.background="orange";
+        }
+}
 
 
 function afficheInfo(rid){

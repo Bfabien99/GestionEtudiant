@@ -23,16 +23,8 @@ photoEtudiant.addEventListener("change",function(){
 
 myForm.addEventListener('submit', function(e){
     e.preventDefault();
-    if (nomEtudiant.value!=="" && prenomEtudiant.value!=="") {
-       ajouterEtudiant();
-    myForm.reset(); 
-    }
-    else{
-        nomEtudiant.style.border="2px solid tomato";
-        nomEtudiant.placeholder="Remplissez ce champ !"
-        prenomEtudiant.style.border="2px solid tomato";
-        prenomEtudiant.placeholder="Remplissez ce champ !"
-    }
+    ajouterEtudiant();
+    myForm.reset();
 })
 
 
@@ -60,10 +52,8 @@ function ajouterEtudiant() {
     localStorage.setItem('Etudiants',JSON.stringify(etudiant));
     }
 
-    else{
-        alert("Desole, l'étudiant existe déja!")
-    }
-    location.href="liste.html";
+    else
+    
 }
 
 
