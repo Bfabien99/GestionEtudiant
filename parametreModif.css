@@ -1,61 +1,40 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
-
 h2{
     color: #1c68da
 }
 
-.formulaire{
-    display:block;
-    border: 1px solid black;
-    margin: 50px;
-    padding: 50px;
-    text-align: center;
-    width:400px;
-    height: 600px;
-    position: relative;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
- }
 
-.info1{
-    position:relative;
-    display: block;
-    justify-content: center;
-    height: 300px;
-    width: 400px;
-    height: auto;
-    top: 200px;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
+.formulaireBox{
     
-  }
-   
-    
-
-
-.image{
-    position:relative;
-    width: 100px;
-    height: 100px;
-    background: url(pc.jpg) no-repeat center;
-    background-size: cover;
-    border-radius: 50%;
-    text-align: center;
-    top: 70px;
-    left: 100px;
+    display: flex;
+    width: 90%;
+    margin: 12px auto;
+    background-color: rgb(255, 255, 255);
+    min-height: 400px;
     
 }
 
-button{
-    color: #fff;
-    background-color: green;
-    width:100px;
-    height: 30px;
-    margin-left: 50px;
-    
+form{
+    border: 1px solid;
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+}
+
+form .formInput{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+form .formInput div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1em;
 }

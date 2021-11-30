@@ -5,64 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="parametre.css">
+    <link rel="stylesheet" href="parametreModif.css">
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <title>Dashboard</title>
 </head>
 <body>
-     <div class="container">
+    <div class="container">
 
         <div class="naviguation">
             <div class="boiteAdmin">
                 <div class="photoAdmin"></div>
                 <p>ADMIN</p>
             </div>
-         <ul class="navul">
-             <li>
-                 <a href="dashboard.html">
-                 <span class="icone"><i class="fa fa-home" aria-hidden="true"></i></span>
-                 <span class="titre">Accueil</span>
-                </a>
-             </li>
+            <ul class="navul">
+                <li>
+                    <a href="dashboard.html">
+                    <span class="icone"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="titre">Accueil</span>
+                    </a>
+                </li>
 
-             <li class="dropdown">
-                <a href="#">
-                <span class="icone"><i class="fa fa-users" aria-hidden="true"></i></span>
-                <span class="titre">Espace Etudiants</span>
-                </a>
-                <ul class="sousMenu">
-                    <li>
-                        <a href="liste.html">
-                        <span class="icone"><i class="fa fa-list-ul" aria-hidden="true"></i></span>
-                        <span class="titre">Liste</span>
-                       </a>
-                    </li>
-                    <li>
-                        <a href="resultat.html">
-                        <span class="icone"><i class="fa fa-check-double" aria-hidden="true"></i></span>
-                        <span class="titre">Résultats</span>
-                       </a>
-                    </li>
-                </ul>
-            </li>
-            
-            <li>
-                <a href="parametres.html">
-                <span class="icone"><i class="fa fa-cogs" aria-hidden="true"></i></span>
-                <span class="titre">Paramètres</span>
-                </a>
-            </li>
-            <li>
-                <a href="index.html">
-                <span class="icone"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span>
-                <span class="titre">Déconnexion</span>
-                </a>
-            </li>
-        </ul>
+                <li class="dropdown">
+                    <a href="#">
+                    <span class="icone"><i class="fa fa-users" aria-hidden="true"></i></span>
+                    <span class="titre">Espace Etudiants</span>
+                    </a>
+                    <ul class="sousMenu">
+                        <li>
+                            <a href="liste.html">
+                            <span class="icone"><i class="fa fa-list-ul" aria-hidden="true"></i></span>
+                            <span class="titre">Liste</span>
+                        </a>
+                        </li>
+                        <li>
+                            <a href="resultat.html">
+                            <span class="icone"><i class="fa fa-check-double" aria-hidden="true"></i></span>
+                            <span class="titre">Résultats</span>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="parametres.html">
+                    <span class="icone"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+                    <span class="titre">Paramètres</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                    <span class="icone"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span>
+                    <span class="titre">Déconnexion</span>
+                    </a>
+                </li>
+            </ul>
 
-     </div>
+        </div>
 
-         <div class="main">
+        <div class="main">
 
             <div class="topbar">
                 <div class="toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></div>
@@ -74,52 +74,53 @@
                 </div>
             </div>
 
-            <!-- Modifications à partir d'ici -->
-            <div class="formulaire">
-                <h2> Modifier Informations</h2>
-               <div class="image"></div>
-            <form>
-                   
-                 <div class="info">
-                     
-                     <div>
-                        <label for="nameinput">Nom</label>
-                        <input type="text" name="name" id="nameinput">
-                     </div>
+            <!--Partie de Jean Phillipe-->
+            <div class="formulaireBox">
 
-                     <div>
-                        <label for="prenomsinput">Prenoms</label>
-                 yj       <input type="text" name="prenoms" id="prenomsinput">
+                <form name="form" id="myForm" >
+                    
+                    <div class="formInput">
+                        <h3>Formulaire d'enregistrement</h3>
+                        <div>
+                           <label for="nom">Nom</label>
+                        <input type="text" name="nom" id="nom" minlength="2"> 
+                        </div>
+                        
+                        <div>
+                          <label for="prenom">Prenom</label>
+                        <input type="text" name="prenom" id="prenom" minlength="2">  
+                        </div>
+
+                        <div>
+                            <label for="email">Email</label>
+                        <input type="email" name="email" id="email" >
+                        </div>
+
+                        <div>
+                            <label for="identifiant">Identifiant</label>
+                          <input type="text" name="identifiant" id="identifiant" minlength="2">  
+                          </div>
+
+                        <div>
+                            <label for="newpass">Nouveau mot de passe</label>
+                          <input type="text" name="newPass" id="newPass" minlength="6">  
+                        </div>
+
+                        <div>
+                            <label for="confirmpass">Confirmer mot de passe</label>
+                          <input type="text" name="confirmPass" id="confirmPass" minlength="6">  
+                          </div>
+
                     </div>
-
-                    <div>
-                        <label for="emailinput">Email</label>
-                        <input type="email" name="email" id="emailinput" placeholder="exemple@gmail.com">
-                    </div>
-
-                    <div>
-                        <label for="identifiantinput">Identifiant</label>
-                        <input type="text" name="identifiant" id="identifiantinput">
-                    </div>
-
-                    <div>
-                        <label for="ampinput">Ancien mot de passe</label>
-                        <input type="password" name="ancien mot de passe" id="ampinput">
-                    </div>
-
-                    <div>
-                        <label for="nmpinput">Nouveau mot de passe</label>
-                        <input type="password" name="nouveau mot de passe" id="nmpinput">
-                    </div>
-
-                    <div>
-                        <button>Modifier</button>
-                    </div>
-
-                </div>
-            </form>
+                    
+                    <input type="submit" value="Enregistrer" class="submit">
+                </form>
+            
             </div>
+            <!-- Fin-->
+
         </div>
+        
     </div>
             
      

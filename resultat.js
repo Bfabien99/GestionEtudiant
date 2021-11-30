@@ -25,18 +25,15 @@ function afficherEtudiantDashboard(){
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
                 <td>${arr[etudiant].pointRequi}</td>
-                <td>${arr[etudiant].appreciation}</td>
+                <td><p class="">${arr[etudiant].appreciation}</p></td>
             </tr>
             `;
-            id++;
-            console.log(arr[etudiant].nom)
+           id++; 
         }
             
         
     }
 }
-
-
 
 function afficheInfo(rid){
 	id=rid;
@@ -52,7 +49,7 @@ function afficheInfo(rid){
             <p>Total des points obtenus : ${arr[rid].pointObtenu}</p>
             <p>Total des points requis : ${arr[rid].pointRequi}</p>
             <p>Appreciation : ${arr[rid].appreciation}</p>
-            <button onclick="editData(${rid})"><span class="fa fa-pen"></span></button>
+            <button onclick="editNote(${rid})"><span class="fa fa-pen"></span></button>
         </div>
     </div>
     </div>
@@ -61,7 +58,7 @@ function afficheInfo(rid){
 `;
 }
 
-function editData(rid){
+function editNote(rid){
 	id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
     contenus.innerHTML = `<div class="formbox">

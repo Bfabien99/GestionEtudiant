@@ -29,6 +29,7 @@ function afficherEtudiantDashboard(){
 
 
 function editData(rid){
+    
 	id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
     contenus.innerHTML = `<form name="form" id="myForm" onsubmit="updateInfo(${rid})">
@@ -36,37 +37,37 @@ function editData(rid){
         <h3>Modification des informations</h3>
         <div>
            <label for="nom">Nom</label>
-        <input type="text" name="nom" id="nom" placeholder="${arr[rid].nom}"> 
+        <input type="text" name="nom" id="nom" value="${arr[rid].nom}"> 
         </div>
         
         <div>
           <label for="prenom">Prenom</label>
-        <input type="text" name="prenom" id="prenom" placeholder="${arr[rid].prenom}">  
+        <input type="text" name="prenom" id="prenom" value="${arr[rid].prenom}">  
         </div>
 
         <div>
            <label for="date">Date de naissance</label>
-        <input type="date" name="date" id="date" placeholder="${arr[rid].date}"> 
+        <input type="date" name="date" id="date" value="${arr[rid].date}"> 
         </div>
         
         <div>
             <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="${arr[rid].email}">
+        <input type="email" name="email" id="email" value="${arr[rid].email}">
         </div>
 
         <div>
            <label for="contacts">Contact</label>
-        <input type="number" name="contacts" id="contacts" placeholder="${arr[rid].contact}"> 
+        <input type="number" name="contacts" id="contacts" value="${arr[rid].contact}"> 
         </div>
 
         <div>
             <label for="contactsParent">Contact des parents</label>
-        <input type="number" name="contactsParent" id="contactsParent" placeholder="${arr[rid].contactParent}">
+        <input type="number" name="contactsParent" id="contactsParent" value="${arr[rid].contactParent}">
         </div>
 
         <div>
             <label for="specialite">Spécialité</label>
-            <select name="specialite" id="specialite">
+            <select name="specialite" id="specialite" >
                 <option value="Aucun">-- spécialité --</option>
                 <option value="flutter">FLUTTER</option>
                 <option value="frontEnd">FRONT-END</option>
@@ -79,11 +80,11 @@ function editData(rid){
 
         <div>
             <label for="scolarite">Montant versé</label>
-        <input type="number" name="scolarite" id="scolarite" placeholder="${arr[rid].scolarite}">
+        <input type="number" name="scolarite" id="scolarite" value="${arr[rid].scolarite}">
         </div>
 
         <div class="photoInput">
-            <input type="file" name="addPhoto" id="addPhoto" title="${arr[rid].photo}">
+            <input type="file" name="addPhoto" id="addPhoto" src="${arr[rid].photo}">
             <a >Ajouter une photo</a>
         </div>
     
@@ -92,13 +93,23 @@ function editData(rid){
     <input type="submit" value="Enregistrer" class="submit">
     <a href="liste.html">annuler</a>
 </form>`;
+const photoEtudiant = document.getElementById('addPhoto');
+    photoEtudiant.addEventListener("change",function(){
+        const reader = new FileReader();
+    
+        reader.addEventListener('load',(e)=>{
+            photoEtudiant.src = reader.result;
+        });
+    
+        reader.readAsDataURL(this.files[0]);
+    });
 }
 
 function updateInfo(rid){
     id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
 
-        arr[rid].nom = document.getElementById('nom').value.toUpperCase();;   
+        arr[rid].nom = document.getElementById('nom').value.toUpperCase();   
         arr[rid].prenom = document.getElementById('prenom').value.toUpperCase();
         arr[rid].date = document.getElementById('date').value;
         arr[rid].email = document.getElementById('email').value.toLowerCase();
