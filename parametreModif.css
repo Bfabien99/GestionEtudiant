@@ -14,22 +14,28 @@ h2{
 }
 
 form{
-    border: 1px solid;
     display: flex;
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     flex-direction: column;
     justify-content: center;
     gap: 2em;
     align-items: center;
     margin: auto;
-    padding: 20px;
+    padding: 05px;
 }
 
 form .formInput{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    border: 2px solid;
+    padding:20px
+}
+
+form h3{
+    color: #5C9DFF;
+    text-align: center;
 }
 
 form .formInput div{
@@ -37,4 +43,21 @@ form .formInput div{
     width: 100%;
     justify-content: space-between;
     gap: 1em;
+}
+
+form .formInput div input{
+    height:25px;
+    border-radius: 2px;
+    outline: none;
+    padding:1px 8px;
+    border: 1px solid black;
+}
+
+form .submit{
+    width: 30%;
+    border: none;
+    padding: 5px 0px;
+    color: white;
+    background: green;
+    cursor: pointer;
 }

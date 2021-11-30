@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="parametreModif.css">
     <link rel="stylesheet" href="fontawesome/css/all.css">
-    <title>Dashboard</title>
+    <title>Modification Admin</title>
 </head>
 <body>
     <div class="container">
@@ -80,7 +80,7 @@
                 <form name="form" id="myForm" >
                     
                     <div class="formInput">
-                        <h3>Formulaire d'enregistrement</h3>
+                        <h3>Modifier enregistrement</h3>
                         <div>
                            <label for="nom">Nom</label>
                         <input type="text" name="nom" id="nom" minlength="2"> 
@@ -99,7 +99,7 @@
                         <div>
                             <label for="identifiant">Identifiant</label>
                           <input type="text" name="identifiant" id="identifiant" minlength="2">  
-                          </div>
+                        </div>
 
                         <div>
                             <label for="newpass">Nouveau mot de passe</label>
@@ -109,8 +109,8 @@
                         <div>
                             <label for="confirmpass">Confirmer mot de passe</label>
                           <input type="text" name="confirmPass" id="confirmPass" minlength="6">  
-                          </div>
-
+                        </div>
+                        <p id="error"></p>
                     </div>
                     
                     <input type="submit" value="Enregistrer" class="submit">
@@ -128,7 +128,6 @@
 </body>
 <script>
 
-
 function toggleMenu() {
     let naviguation = document.querySelector('.naviguation');
     let photoAdmin = document.querySelector('.photoAdmin');
@@ -140,8 +139,52 @@ function toggleMenu() {
     photoAdmin.classList.toggle('active');
     main.classList.toggle('active');
     toggle.classList.toggle('active');
+}
+
+const myForm = document.getElementById('myForm');
+const nom = document.getElementById('nom');
+const prenom = document.getElementById('prenom');
+const email = document.getElementById('email');
+const identifiant = document.getElementById('identifiant');
+const newMp = document.getElementById('newPass');
+const confirmMp = document.getElementById('confirmPass');
+
+myForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    enregistrerAdmin();
     
-    
+})
+
+function enregistrerAdmin(){
+    if (nom.value!=="" && prenom.value!=="" && email.value!=="" && identifiant.value!=="" && newMp.value !=="") {
+        if (newMp.value == confirmMp.value) { 
+            let enregistrer = {
+                nom:nom.value,
+                prenom:prenom.value,
+                email:email.value,
+                identifiant:identifiant.value,
+                motDePasse:newMp.value
+            };
+
+            localStorage.setItem("Admin",JSON.stringify([enregistrer]));
+            myForm.reset();
+        } else {
+            confirmMp.style.border="2px solid red";
+            const error = document.getElementById('error');
+            error.innerHTML ="Le mot de passe ne correspond pas"
+            error.style.color ="red";
+        setTimeout(function(){
+            error.innerHTML =""
+        },1000)
+        }
+    } else{
+        const error = document.getElementById('error');
+        error.innerHTML ="Veuillez remplir tous les champs"
+        error.style.color ="red";
+        setTimeout(function(){
+            error.innerHTML =""
+        },1000)
+    }
 }
 </script>
 </html>
