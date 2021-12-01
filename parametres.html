@@ -75,59 +75,54 @@
             </div>
 
             <!-- Modifications à partir d'ici -->
-           <div class="formulaire">
-               <h2> Informations</h2>
-              <div class="image"></div>
-                  
-                <div class="info">
-                    <div>
-                    <label for="name">Nom</label>
-                    XXXXXXXXXXX
-                </div>
+            <div class="formulaireBox">
+                <div class="formulaire">
+               
 
-                <div>
-                    <label for="prenoms">Prenoms</label>
-                    XXXXXXXXXXXXXXXXX
-                </div>
-
-                <div>
-                    <label for="email">Email</label>
-                    XXXXXXX@gmail.com
-                </div>
-
-                <div>
-                    <label for="identifiant">Identifiant</label>
-                    XXXXXXXXXXXXXXXXXXX
-                </div>
-
-                <div>   
-                   <a href="parametreModif.html"><button>Modifier</button></a>
-                </div>  
-                </div>
-
-           </div>
+                </div> 
+                <a href="parametreModif.html">Modifier</a>
+            </div>
 
          </div>
      </div>
      
      
 </body>
+<script src="toggle.js"></script>
 <script>
+const myForm = document.querySelector('.formulaire');
+    const adminPic = document.querySelector('.photoAdmin')
+    let arr = JSON.parse(localStorage.getItem('Admin'));
+    for (admin in arr) {
+        adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`
+        myForm.innerHTML = `
+            <h2> Informations</h2>
+            <div class="image" style="background:url('${arr[admin].photo}') no-repeat center/cover"></div>
+                  
+                <div class="info">
+                    
+                    <div>
+                    <label for="name">Nom : </label>
+                    <p>${arr[admin].nom}</p>
+                    </div>
 
+                    <div>
+                    <label for="prenoms">Prenoms : </label>
+                    <p>${arr[admin].prenom}</p>
+                    </div>
 
-function toggleMenu() {
-    let naviguation = document.querySelector('.naviguation');
-    let photoAdmin = document.querySelector('.photoAdmin');
-    let main = document.querySelector('.main');
-    let toggle = document.querySelector('.toggle');
-    
+                    <div>
+                    <label for="email">Email : </label>
+                    <p>${arr[admin].email}</p>
+                    </div>
 
-    naviguation.classList.toggle('active');
-    photoAdmin.classList.toggle('active');
-    main.classList.toggle('active');
-    toggle.classList.toggle('active');
-    
-    
-}
+                    <div>
+                    <label for="identifiant">Identifiant : </label>
+                    <p>${arr[admin].identifiant}</p>
+                    </div>
+                </div>
+        `
+    }
+
 </script>
 </html>

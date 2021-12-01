@@ -7,9 +7,18 @@ const contenus = document.querySelector('.contenus');
 const ajouterNote = document.querySelector('.add');
 
 
-
-
 setInterval(afficherEtudiantDashboard(),10);
+
+
+/*Changer photo de l'Admin sur le dashboard*/
+let arr = JSON.parse(localStorage.getItem('Admin'));
+    for (admin in arr) {
+        const adminPic = document.querySelector('.photoAdmin')
+        adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`
+
+    }
+/*Fin*/
+
 
 function afficherEtudiantDashboard(){
     if(localStorage.getItem('Etudiants')){
@@ -25,10 +34,11 @@ function afficherEtudiantDashboard(){
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
                 <td>${arr[etudiant].pointRequi}</td>
-                <td><p class="">${arr[etudiant].appreciation}</p></td>
+                <td><p class="appreciation ${arr[etudiant].appreciation < 40 ? 'rouge' : (arr[etudiant].appreciation > 40 &&  arr[etudiant].appreciation < 64) ? 'orange' : 'vert'}">${arr[etudiant].appreciation}</p></td>
             </tr>
             `;
            id++; 
+
         }
             
         
@@ -48,7 +58,7 @@ function afficheInfo(rid){
             <p>Nom & Prénoms :<strong> ${arr[rid].nom} ${arr[rid].prenom}</strong></p>
             <p>Total des points obtenus : ${arr[rid].pointObtenu}</p>
             <p>Total des points requis : ${arr[rid].pointRequi}</p>
-            <p>Appreciation : ${arr[rid].appreciation}</p>
+            <p class="${arr[rid].appreciation < 40 ? 'rouge' : (arr[rid].appreciation > 40 &&  arr[rid].appreciation < 64) ? 'orange' : 'vert'}">${arr[rid].appreciation}">Appreciation : ${arr[rid].appreciation}</p>
             <button onclick="editNote(${rid})"><span class="fa fa-pen"></span></button>
         </div>
     </div>

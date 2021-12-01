@@ -212,18 +212,8 @@
      </div>
 </body>
 <script src="dashboard.js"></script>
+<script src="toggle.js"></script>
 <script>
-function toggleMenu() {
-    let naviguation = document.querySelector('.naviguation');
-    let photoAdmin = document.querySelector('.photoAdmin');
-    let main = document.querySelector('.main');
-    let toggle = document.querySelector('.toggle');
-    naviguation.classList.toggle('active');
-    photoAdmin.classList.toggle('active');
-    main.classList.toggle('active');
-    toggle.classList.toggle('active');
-}
-
 if (localStorage.getItem('Etudiants')) {
     var jsonString = localStorage.getItem('Etudiants');
     var retO = JSON.parse(jsonString);

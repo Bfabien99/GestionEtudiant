@@ -81,6 +81,9 @@
                     
                     <div class="formInput">
                         <h3>Modifier enregistrement</h3>
+                        <div class="photoadmin">
+                            <input type="file" name="photoInput" id="photoInput">
+                        </div>
                         <div>
                            <label for="nom">Nom</label>
                         <input type="text" name="nom" id="nom" minlength="2"> 
@@ -126,21 +129,8 @@
      
      
 </body>
+<script src="toggle.js"></script>
 <script>
-
-function toggleMenu() {
-    let naviguation = document.querySelector('.naviguation');
-    let photoAdmin = document.querySelector('.photoAdmin');
-    let main = document.querySelector('.main');
-    let toggle = document.querySelector('.toggle');
-    
-
-    naviguation.classList.toggle('active');
-    photoAdmin.classList.toggle('active');
-    main.classList.toggle('active');
-    toggle.classList.toggle('active');
-}
-
 const myForm = document.getElementById('myForm');
 const nom = document.getElementById('nom');
 const prenom = document.getElementById('prenom');
@@ -148,12 +138,36 @@ const email = document.getElementById('email');
 const identifiant = document.getElementById('identifiant');
 const newMp = document.getElementById('newPass');
 const confirmMp = document.getElementById('confirmPass');
+const photoAdmin = document.getElementById('photoInput');
+const photoBox = document.querySelector('.photoadmin');
+
+photoAdmin.addEventListener("change",function(){
+    const reader = new FileReader();
+
+    reader.addEventListener('load',(e)=>{
+        uploaded_image = reader.result;
+        photoAdmin.src = reader.result;
+        photoBox.style.backgroundImage= `url(${uploaded_image})`;
+    });
+
+    reader.readAsDataURL(this.files[0]);
+})
 
 myForm.addEventListener('submit',function(e){
     e.preventDefault();
     enregistrerAdmin();
     
 })
+
+/*Changer photo de l'Admin sur le dashboard*/
+let arr = JSON.parse(localStorage.getItem('Admin'));
+    for (admin in arr) {
+        const adminPic = document.querySelector('.photoAdmin')
+        adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`
+
+    }
+/*Fin*/
+
 
 function enregistrerAdmin(){
     if (nom.value!=="" && prenom.value!=="" && email.value!=="" && identifiant.value!=="" && newMp.value !=="") {
@@ -163,11 +177,13 @@ function enregistrerAdmin(){
                 prenom:prenom.value,
                 email:email.value,
                 identifiant:identifiant.value,
-                motDePasse:newMp.value
+                motDePasse:newMp.value,
+                photo:photoAdmin.src
             };
 
             localStorage.setItem("Admin",JSON.stringify([enregistrer]));
             myForm.reset();
+            location.href="parametres.html";
         } else {
             confirmMp.style.border="2px solid red";
             const error = document.getElementById('error');

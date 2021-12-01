@@ -176,194 +176,68 @@ div.search label .fa{
     padding-right: 20px;   
 }
 /**/
-div.contenus{
-    position: relative;
-    background-color: #c2daff98;
-    min-height: calc(98vh - 95px);
-    margin: 30px 5px 5px 5px;
-    display: flex;
-    justify-content: space-around;
-    padding:20px 5px ;
-    max-width: 100%;
-}
-
-div.boiteEtudiant{
- position: relative;
- display: flex;
- flex-direction: column;
- width:55%;
- padding: 0px 10px;
-}
-
-div.etudiantTotal{
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color:#fff;
-    border-radius: 5px;
-}
-
-div.etudiantTotal span{
-    display: block;
-    font-size: 24px;
-    text-align: center;
-}
-
-div.listeEtudiant{
-    position: relative;
+.formulaireBox{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    top: 40px;
-    background-color: #fff;
-    padding: 15px;
-    max-width:100%;
-    overflow: auto;
-    height: 80%;
-    border-radius: 25px;
-}
-
-div.listeEtudiant .titre{
-    position: sticky;
-    width:100%;
-    top: -30px;
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    margin-bottom: 10px;
-}
-
-div.listeEtudiant table{
-    width:100%;
-    border-collapse: collapse;
-}
-
-div.listeEtudiant table tr{
-    box-shadow: 1px 0px 5px silver;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-div.listeEtudiant table tr td{
-    text-align: center;
-    padding: 10px 1px;
-}
-
-div.listeEtudiant table tr:hover td{
-    color: #fff;
-    background: #5c9dff;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-div.listeEtudiant table tr:hover td:first-child{
-    color: #fff;
-    background: #5c9dff;
-    cursor: pointer;
-    transition: 0.2s;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-
-div.listeEtudiant table tr:hover td:last-child{
-    color: #fff;
-    background: #5c9dff;
-    cursor: pointer;
-    transition: 0.2s;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-div.etudiantParSpecialite{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    max-width:40% ;
-    padding: 5px;
-    background: #fff;
-    overflow: auto;
-    
-}
-
-div.etudiantParSpecialite div{
-    position: relative;
-    background: #fff;
-    display:flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 5px;
-    border-radius: 5px;
-    text-shadow: 0px 1px 5px rgb(192, 192, 192);
-    box-shadow: 2px 2px 5px silver;
-    flex-grow: 1;
-    margin: 5px;
-    font-size: 12px;
+    justify-content: space-around;
+    width: 90%;
+    gap: 2em;
+    margin: auto;
+    padding: 20px;
 }
 
-div.etudiantParSpecialite div span{
-    font-size: 20px;
-    padding:10px;
+.formulaireBox h2{
+    color: #5c9dff;
 }
 
-div.etudiantParSpecialite div:hover{
-    background: #1c68da;
-    color: #fff;
-    cursor: pointer;
-}
-
-h2{
-    color: #1c68da
-}
-.formulaire{
-    display:block;
-    border: 1px solid black;
-    margin: 50px;
-    padding: 50px;
-    text-align: center;
-    width:600px;
-    height: 600px;
-    border-radius: 10px;
-}
-
-.info{
-    position: relative;
-    display: block;
-    justify-content: center;
-    height: 500px;
-    margin: 10px;
-    width: 500px;
-    height: auto;
-    top: 200px;
-    border-radius: 10px;
-    
-}
-
-
-.image{
-    position:relative;
-    width: 100px;
-    height: 100px;
-    background: url(pc.jpg) no-repeat center;
-    background-size: cover;
-    border-radius: 50%;
-    text-align: center;
-    top: 80px;
-    left: 200px;
-    
-}
-
-button{
+.formulaireBox a{
+    width: 40%;
+    padding: 8px 0px;
     color: #fff;
     background-color: green;
-    width: 50px;
-    height: 20px;
-    margin-left: 50px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.formulaire{
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid;
+    height: 500px;
+}
+
+.formulaire .image{
+    border: 1px solid red;
+    width: 205px;
+    height: 205px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+}
+
+.formulaire .info{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     
 }
 
+.formulaire .info div{
+    display: flex;
+    gap: 1em;
+}
 
-
+.formulaire .info div label{
+    width: 100px;
+}
 
 
 /**/

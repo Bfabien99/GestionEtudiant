@@ -3,6 +3,16 @@ const contenus = document.querySelector('.contenus');
 
 setInterval(afficherEtudiantDashboard(),10);
 
+/*Changer photo de l'Admin sur le dashboard*/
+let arr = JSON.parse(localStorage.getItem('Admin'));
+    for (admin in arr) {
+        const adminPic = document.querySelector('.photoAdmin')
+        adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`
+
+    }
+/*Fin*/
+
+
 function afficherEtudiantDashboard(){
     if(localStorage.getItem('Etudiants')){
         let arr = JSON.parse(localStorage.getItem('Etudiants'));

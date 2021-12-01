@@ -24,19 +24,29 @@ photoEtudiant.addEventListener("change",function(){
 myForm.addEventListener('submit', function(e){
     e.preventDefault();
 
-    if (nomEtudiant.value!=="" && prenomEtudiant.value!=="" && scolariteEtudiant.value!=="") {
-    if (nomEtudiant.value!=="" && prenomEtudiant.value!=="") {
-       ajouterEtudiant();
-    myForm.reset(); 
+    if(nomEtudiant.value.trim()!=="" && prenomEtudiant.value.trim()!=="" && contactsParentEtudiant.value.trim()!=="" && scolariteEtudiant.value.trim()!==""){
+        ajouterEtudiant();
+        myForm.reset(); 
     }
     else{
-        nomEtudiant.style.border="2px solid tomato";
-        nomEtudiant.placeholder="Remplissez ce champ !"
-        prenomEtudiant.style.border="2px solid tomato";
-        prenomEtudiant.placeholder="Remplissez ce champ !"
+        const error = document.getElementById('error');
+        error.innerHTML ="Veuillez remplir tous les champs"
+        error.style.color ="red";
+        setTimeout(function(){
+            error.innerHTML =""
+        },1000)
     }
-}})
 
+})
+
+/*Changer photo de l'Admin sur le dashboard*/
+let arr = JSON.parse(localStorage.getItem('Admin'));
+    for (admin in arr) {
+        const adminPic = document.querySelector('.photoAdmin')
+        adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`
+
+    }
+/*Fin*/
 
 //Sauvegarder les données de l'étudiant
 function ajouterEtudiant() {

@@ -3,6 +3,7 @@ const contenus = document.querySelector('.contenus');
 
 setInterval(afficherEtudiantDashboard(),10);
 
+/*Affiche les Etudiants inscrits*/
 function afficherEtudiantDashboard(){
     if(localStorage.getItem('Etudiants')){
         let arr = JSON.parse(localStorage.getItem('Etudiants'));
@@ -27,7 +28,7 @@ function afficherEtudiantDashboard(){
     }
 }
 
-
+/*Affiche le Formulaire de Modification des informations de l'Etudiant l'Etudiant */
 function editData(rid){
     
 	id=rid;
@@ -105,6 +106,17 @@ const photoEtudiant = document.getElementById('addPhoto');
     });
 }
 
+
+/*Changer photo de l'Admin sur le dashboard*/
+let arr = JSON.parse(localStorage.getItem('Admin'));
+    for (admin in arr) {
+        const adminPic = document.querySelector('.photoAdmin')
+        adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`
+
+    }
+/*Fin*/
+
+/*Enregistre les modifications des informations de l'Etudiant */
 function updateInfo(rid){
     id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
@@ -122,6 +134,7 @@ function updateInfo(rid){
     localStorage.setItem("Etudiants", JSON.stringify(arr));
 }
 
+/*Affiche les informations de l'Etudiant sélectionner*/
 function afficheInfo(rid){
 	id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
@@ -154,6 +167,7 @@ function afficheInfo(rid){
 `;
 }
 
+/*Supprimer l'Etudiant */
 function supStudent(rid){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
     let ind = arr.indexOf(arr[rid]);
@@ -163,6 +177,4 @@ function supStudent(rid){
         localStorage.setItem("Etudiants",JSON.stringify(arr));
         document.location.reload();  
     }
-    
-    
 }
