@@ -23,11 +23,9 @@ photoEtudiant.addEventListener("change",function(){
 
 myForm.addEventListener('submit', function(e){
     e.preventDefault();
-<<<<<<< HEAD
+
     if (nomEtudiant.value!=="" && prenomEtudiant.value!=="" && scolariteEtudiant.value!=="") {
-=======
     if (nomEtudiant.value!=="" && prenomEtudiant.value!=="") {
->>>>>>> f0f05bcd74ca17dfbea404e22922111252f73898
        ajouterEtudiant();
     myForm.reset(); 
     }
@@ -37,7 +35,7 @@ myForm.addEventListener('submit', function(e){
         prenomEtudiant.style.border="2px solid tomato";
         prenomEtudiant.placeholder="Remplissez ce champ !"
     }
-})
+}})
 
 
 //Sauvegarder les données de l'étudiant
@@ -62,31 +60,14 @@ function ajouterEtudiant() {
     });
 
     localStorage.setItem('Etudiants',JSON.stringify(etudiant));
-<<<<<<< HEAD
     location.href="liste.html";
-=======
->>>>>>> f0f05bcd74ca17dfbea404e22922111252f73898
     }
 
     else{
         alert("Desole, l'étudiant existe déja!")
     }
-<<<<<<< HEAD
-    
-=======
-    location.href="liste.html";
->>>>>>> f0f05bcd74ca17dfbea404e22922111252f73898
+
 }
 
-
- if (localStorage.getItem('Etudiants')) {
-
-     var jsonString = localStorage.getItem('Etudiants');
-     var retO = JSON.parse(jsonString);
-     retO.forEach((el) => {
-         console.log(el.photo);
-     })
-    
- }
 
 
