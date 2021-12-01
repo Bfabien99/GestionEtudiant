@@ -47,7 +47,8 @@ let arr = JSON.parse(localStorage.getItem('Admin'));
 
     }
 /*Fin*/
-let id = Math.floor((1 + Math.random()) * 0x10000);
+var date = new Date();
+let id =date.getDate() + "" + date.getMonth() + "" + date.getHours() + "" + date.getSeconds() + "" + date.getFullYear();
 //Sauvegarder les données de l'étudiant
 function ajouterEtudiant() {
     let etudiant = JSON.parse(localStorage.getItem('Etudiants')) || [];
