@@ -25,6 +25,7 @@ form{
 }
 
 form .formInput{
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -83,4 +84,21 @@ form .submit{
     color: white;
     background: green;
     cursor: pointer;
+}
+
+form .formInput a{
+    z-index: 1;
+    text-decoration: none;
+    color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+    border: 1px solid;
 }

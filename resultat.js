@@ -15,10 +15,37 @@ let arr = JSON.parse(localStorage.getItem('Admin'));
     for (admin in arr) {
         const adminPic = document.querySelector('.photoAdmin')
         adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`
-
     }
-/*Fin*/
+    /*Fin*/
 
+/*Recherché un étudiant*/
+const searchInput = document.getElementById('recherche');
+
+searchInput.addEventListener('keyup', function(){
+    let arr = JSON.parse(localStorage.getItem('Etudiants'));
+    const input = searchInput.value
+    const result = arr.filter(item => item.nom.toLocaleUpperCase().includes(input.toLocaleUpperCase()));
+    let sugg = '';
+    let id = 1;
+    if(input !== ""){result.forEach(resultItem => sugg += `
+    <tr class="user" id="${id}" onclick="afficheInfo(${resultItem})">
+    <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${resultItem.photo}" alt=""></td>
+    <td>&nbsp;${resultItem.matricule}</td>
+    <td> &nbsp; ${resultItem.nom} &nbsp; ${resultItem.prenom}</td>
+    <td>&nbsp; ${resultItem.specialite}</td>
+    <td>${resultItem.pointObtenu}</td>
+    <td>${resultItem.pointRequi}</td>
+    <td><p class="appreciation ${resultItem.appreciation < 40 ? 'rouge' : (resultItem.appreciation > 40 &&  resultItem.appreciation < 64) ? 'orange' : 'vert'}">${resultItem.appreciation}</p></td>
+</tr>
+    `)
+tbody.innerHTML = sugg;
+}
+else{
+    afficherEtudiantDashboard()
+}
+    
+})
+/*Fin*/
 
 function afficherEtudiantDashboard(){
     if(localStorage.getItem('Etudiants')){
@@ -29,7 +56,7 @@ function afficherEtudiantDashboard(){
             tbody.innerHTML += `
             <tr class="user" id="${id}" onclick="afficheInfo(${etudiant})">
                 <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
-                <td>&nbsp; 00${id}</td>
+                <td>&nbsp; ${arr[etudiant].matricule}</td>
                 <td> &nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td>&nbsp; ${arr[etudiant].specialite}</td>
                 <td>${arr[etudiant].pointObtenu}</td>
@@ -58,12 +85,13 @@ function afficheInfo(rid){
             <p>Nom & Prénoms :<strong> ${arr[rid].nom} ${arr[rid].prenom}</strong></p>
             <p>Total des points obtenus : ${arr[rid].pointObtenu}</p>
             <p>Total des points requis : ${arr[rid].pointRequi}</p>
-            <p class="${arr[rid].appreciation < 40 ? 'rouge' : (arr[rid].appreciation > 40 &&  arr[rid].appreciation < 64) ? 'orange' : 'vert'}">${arr[rid].appreciation}">Appreciation : ${arr[rid].appreciation}</p>
-            <button onclick="editNote(${rid})"><span class="fa fa-pen"></span></button>
+            <p class="specialite"> ${arr[rid].specialite}</p>
+            <p class="Appr ${arr[rid].appreciation < 40 ? 'rouge' : (arr[rid].appreciation > 40 &&  arr[rid].appreciation < 64) ? 'orange' : 'vert'}">${arr[rid].appreciation}">Appreciation : ${arr[rid].appreciation}</p>
+            <button onclick="editNote(${rid})" class="edit"><span class="fa fa-pen"></span></button>
         </div>
     </div>
     </div>
-<a href="resultat.html" class="retour">Retour</a>
+<a href="resultat.html" class="back">Retour</a>
 </div>
 `;
 }
@@ -73,8 +101,7 @@ function editNote(rid){
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
     contenus.innerHTML = `<div class="formbox">
     <form name="form" id="myForm" autocomplete="off" onsubmit="ajouterNoteEtudiant(${rid})">
-    <div class="img">
-    <img src="${arr[rid].photo}" alt=""></div>
+    <div class="img" style="background: url('${arr[rid].photo}') no-repeat center/cover"></div>
     <div class="divInput">
 
     <label for="obtenu">Total obtenu :</label>
@@ -83,10 +110,10 @@ function editNote(rid){
     <label for="requis">Total requis :</label>
     <input type="number" name="totalRequis" id="totalRequis" placeholder="total Requis">
 
-    <input type="submit" value="Enregistrer" class="submit">
+    <input type="submit" value="Enregistrer" class="ok">
     </div>
 </form>
-    <a href="resultat.html">annuler</a>
+    <a href="resultat.html" class="back">Retour</a>
 </div>`;
 }
 
@@ -102,7 +129,4 @@ function ajouterNoteEtudiant(rid) {
 }
 
 
-// ajouterNote.addEventListener('click',function () {
-//     info.style.display="none";
-//     ajouterNoteEtudiant.style.display="flex";
-// })
+

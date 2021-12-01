@@ -10,8 +10,31 @@
 }
 
 .title{
+    width: 80%;
+    text-align: center;
     position: absolute;
     top: 30px;
+}
+
+.title label{
+    width: 100%;
+    position: relative;
+}
+
+.title input{
+    outline: none;
+    border: 1px solid #111;
+    padding: 0px 5px;
+    width: 50%;
+    border-radius: 40px;
+    height: 30px;
+}
+
+.title .fa{
+    position: absolute;
+    top: 4px;
+    right: 0px; 
+    padding-right: 20px; 
 }
 
 .tableContainer{

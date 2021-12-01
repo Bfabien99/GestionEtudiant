@@ -23,6 +23,22 @@
     gap: 1em;
 }
 
+.fermer{
+    text-decoration: none;
+    color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    border: 1px solid;
+}
+
 #myForm .formInput h3{
     text-align: center;
 }

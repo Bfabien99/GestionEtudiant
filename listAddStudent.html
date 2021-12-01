@@ -83,6 +83,7 @@
                     
 
                     <div class="formInput">
+                        <a href="liste.html" class="fermer"><span class="fa fa-times"></span></a>
                         <h3>Formulaire d'enregistrement</h3>
                         <div>
                            <label for="nom">Nom</label>
@@ -106,12 +107,12 @@
 
                         <div>
                            <label for="contacts">Contact</label>
-                        <input type="number" name="contacts" id="contacts" minlength="8"> 
+                        <input type="text" name="contacts" id="contacts" minlength="8" pattern="[0-9]+"> 
                         </div>
 
                         <div>
                             <label for="contactsParent">Contact des parents</label>
-                        <input type="number" name="contactsParent" id="contactsParent" minlength="8">
+                        <input type="text" name="contactsParent" id="contactsParent" minlength="8" pattern="[0-9]+">
                         </div>
 
                         <div>
@@ -129,7 +130,7 @@
 
                         <div>
                             <label for="scolarite">Montant versé</label>
-                        <input type="number" name="scolarite" id="scolarite" >
+                        <input type="text" name="scolarite" id="scolarite" minlength="5" pattern="[0-9]+">
                         </div>
 
                         <!-- <div>

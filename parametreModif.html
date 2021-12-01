@@ -113,6 +113,7 @@
                             <label for="confirmpass">Confirmer mot de passe</label>
                           <input type="text" name="confirmPass" id="confirmPass" minlength="6">  
                         </div>
+                        <a href="parametres.html"><span class="fa fa-times"></span></a>
                         <p id="error"></p>
                     </div>
                     
@@ -163,8 +164,7 @@ myForm.addEventListener('submit',function(e){
 let arr = JSON.parse(localStorage.getItem('Admin'));
     for (admin in arr) {
         const adminPic = document.querySelector('.photoAdmin')
-        adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`
-
+        adminPic.style.background=`url(${arr[admin].photo}) no-repeat center/cover`;
     }
 /*Fin*/
 

@@ -1,181 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 
-body{
-    overflow-x: hidden;
-}
-
-div.container{
-    position: relative;
-    width: 100%;
-}
-
-div.naviguation
-{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    width: 300px;
-    height: 100%;
-    background-color: #5c9dff;
-    transition: 0.5s;
-    overflow: hidden;
-}
-
-div.boiteAdmin{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    padding: 15px;
-    border-bottom: 2px solid white;
-    color: #fff;
-}
-
-div.photoAdmin{
-    width: 200px;
-    height: 200px;
-    border-radius:50%;
-    background: url("alex.jpg") no-repeat bottom;
-    background-size: cover;
-    transition:0.5s;
-}
-
-div.naviguation ul
-{
-  width: 100%;
-}
-
-div.naviguation ul li
-{
-  position: relative; 
-  width: 100%;
-  list-style-type: none;
-  background-color: #1c68da;
-  margin: 10px 0px;
-}
-
-
-div.naviguation ul li:hover{
-    background-color: #3977d4;
-}
-
-
-div.naviguation ul li a
-{
-  position: relative; 
-  display: block;
-  width: 100%;
-  display: flex;
-  text-decoration: none;
-  color: #fff;
-}
-
-div.naviguation ul li a span.icone
-{
-  position: relative; 
-  display: block;
-  min-width: 60px;
-  height: 60px;
-  line-height : 60px;
-  text-align: center;
-}
-
-div.naviguation ul li a span.icone i.fa
-{
-  color: rgb(243, 229, 36);
-  font-size:24px;
-}
-
-div.naviguation ul li a span.titre
-{
-  position: relative;
-  display: block;
-  padding:0 10px;
-  height: 60px;
-  line-height: 60px;
-  white-space: nowrap;
-}
-/**/
-div.main{
-    position: absolute;
-    width: calc(100% - 300px);
-    left: 300px;
-    min-height: 100vh;
-    background: #fafafa;
-    transition: 0.5s;
-}
-
-div.main div.topbar{
-   width: 100%; 
-   background: #fff;
-   height: 60px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   box-shadow: 2px 0px 5px black;
-   padding: 0 10px;
-}
-
-div.toggle{
-    position: relative;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    line-height: 60px;
-    font-size: 24px;
-    text-align: center;
-    color: #111;
-}
-
-div.naviguation.active{
-    width: 60px;
-}
-
-div.photoAdmin.active{
-    width: 60px;
-    height: 200px;
-    border-radius: 15px;
-}
-
-div.main.active{
-    width: calc(100% - 60px);
-    left: 60px;
-}
-
-div.search{
-    position: relative;
-    width: 400px;
-    margin: 0 10px;
-}
-
-div.search label{
-    position: relative;
-    width: 100%;
-}
-
-div.search label input{
-    height:30px;
-    outline: none;
-    border: 1px solid #111;
-    padding: 0px 5px;
-    width: 100%;
-    border-radius: 40px;
-}
-
-div.search label .fa{
-    position: absolute;
-    top: 4px;
-    right: 0px; 
-    padding-right: 20px;   
-}
-/**/
 .formulaireBox{
     display: flex;
     flex-direction: column;
@@ -191,7 +14,7 @@ div.search label .fa{
     color: #5c9dff;
 }
 
-.formulaireBox a{
+.formulaireBox a.save{
     width: 40%;
     padding: 8px 0px;
     color: #fff;
@@ -214,7 +37,7 @@ div.search label .fa{
 }
 
 .formulaire .image{
-    border: 1px solid red;
+    border: 1px solid rgba(126, 126, 126, 0.301);
     width: 205px;
     height: 205px;
     border-radius: 50%;
@@ -239,65 +62,18 @@ div.search label .fa{
     width: 100px;
 }
 
-
-/**/
-
-@media screen and (max-width:850px){
-    div.naviguation{
-        width: 60px;
-    }
-    
-    div.photoAdmin{
-        width: 60px;
-        height: 200px;
-        border-radius: 15px;
-    }
-    
-    div.main{
-        width: calc(100% - 60px);
-        left: 60px;
-    }
-}
-
-@media screen and (max-width:600px){
-    
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    div.contenus{
-        display: flex;
-        flex-direction: column;
-        gap: 3em;
-    }
-
-    div.boiteEtudiant{
-        width: 100%;
-    }
-
-    div.listeEtudiant{
-        max-height:350px;
-        position: relative;
-        top: 10px;
-    }
-
-    div.listeEtudiant div.titre{
-        position: relative;
-        background: none;
-        top: 40px;
-        
-    }
-
-    div.listeEtudiant table{
-        margin-top: 10px;
-    }
-
-    div.etudiantParSpecialite{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-width: 100%;
-    }
+.formulaire a{
+    text-decoration: none;
+    color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 25px;
+    right: 50px;
+    cursor: pointer;
+    border: 1px solid;
 }

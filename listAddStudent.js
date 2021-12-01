@@ -47,7 +47,7 @@ let arr = JSON.parse(localStorage.getItem('Admin'));
 
     }
 /*Fin*/
-
+let id = Math.floor((1 + Math.random()) * 0x10000);
 //Sauvegarder les données de l'étudiant
 function ajouterEtudiant() {
     let etudiant = JSON.parse(localStorage.getItem('Etudiants')) || [];
@@ -64,6 +64,7 @@ function ajouterEtudiant() {
         specialite:specialiteEtudiant.value.toUpperCase(),
         scolarite:scolariteEtudiant.value,
         photo:photoEtudiant.src,
+        matricule:id,
         pointObtenu: 0,
         pointRequi: 0,
         appreciation:0

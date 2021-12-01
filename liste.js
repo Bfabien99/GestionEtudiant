@@ -13,7 +13,7 @@ function afficherEtudiantDashboard(){
             user.innerHTML += `
             <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
                 <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>
-                <td>&nbsp; 00${id} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].matricule} &nbsp;</td>
                 <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td> &nbsp; ${arr[etudiant].date} &nbsp;</td>
                 <td> &nbsp; ${arr[etudiant].contact} &nbsp;</td>
@@ -35,6 +35,7 @@ function editData(rid){
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
     contenus.innerHTML = `<form name="form" id="myForm" onsubmit="updateInfo(${rid})">
     <div class="formInput">
+    <a href="liste.html" class="fermer"><span class="fa fa-times"></span></a>
         <h3>Modification des informations</h3>
         <div>
            <label for="nom">Nom</label>
@@ -88,7 +89,6 @@ function editData(rid){
             <input type="file" name="addPhoto" id="addPhoto" src="${arr[rid].photo}">
             <a >Ajouter une photo</a>
         </div>
-    
     </div>
     
     <input type="submit" value="Enregistrer" class="submit">
