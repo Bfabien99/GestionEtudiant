@@ -186,22 +186,22 @@
                 </div>
 
                 <div class="etudiantParSpecialite">
-                    <div>
+                    <div class="flutter">
                         <h3>Nombre d'étudiants en Flutter</h3> <span class="flutterList">0</span>
                     </div>
-                    <div>
+                    <div class="frontend">
                         <h3>Nombre d'étudiants en Front End</h3> <span class="frontEndList">0</span>
                     </div>
-                    <div>
+                    <div class="javascript">
                         <h3>Nombre d'étudiants en JavaScript</h3> <span class="javascriptList">0</span>
                     </div>
-                    <div>
+                    <div class="marketing">
                         <h3>Nombre d'étudiants en Marketing</h3> <span class="marketingList">0</span>
                     </div>
-                    <div>
+                    <div class="php">
                         <h3>Nombre d'étudiants en PHP</h3> <span class="phpList">0</span>
                     </div>
-                    <div>
+                    <div class="python">
                         <h3>Nombre d'étudiants en Python</h3> <span class="pythonList">0</span>
                     </div>
                 </div>
@@ -265,6 +265,111 @@ document.querySelectorAll('.user').forEach(el =>{
     var retO = JSON.parse(jsonString);
     })
 
+})
+
+const specialite = document.querySelectorAll('.etudiantParSpecialite div');
+specialite.forEach(function(el){
+    el.addEventListener('click',function(){
+        let arr = JSON.parse(localStorage.getItem('Etudiants'));
+
+        if(el.classList.contains('php')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "PHP")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }} 
+
+        if(el.classList.contains('frontend')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "FRONTEND")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }}
+
+        if(el.classList.contains('javascript')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "JAVASCRIPT")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }} 
+
+        if(el.classList.contains('python')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "PYTHON")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }}
+
+        if(el.classList.contains('flutter')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "FLUTTER")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }} 
+
+        if(el.classList.contains('marketing')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "MARKETING")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }}
+        
+
+    })
 })
 </script>
 </html>
