@@ -436,6 +436,7 @@ div.etudiantParSpecialite div:hover{
     top: 20px;
     right: 10px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .retour{
