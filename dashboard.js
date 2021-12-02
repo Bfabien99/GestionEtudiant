@@ -43,8 +43,7 @@ function afficheInfo(rid){
             <div class="img" style="background: url('${arr[rid].photo}') no-repeat center/cover"></div>
             <div class="specialite">${arr[rid].specialite}</div>
             <div class="scolarite">
-                <h3>Scolarité</h3>
-                <p class="mv">Montant Versé</p>
+                <p class="mv">Total Versé</p>
                 <p class="somme">${arr[rid].scolarite}</p>
                 <p p class="rp">Reste à payer</p>
                 <p class="somme">${mr}</p>
@@ -67,30 +66,5 @@ function afficheInfo(rid){
 }
 
 
-/*Recherché un étudiant*/
-const searchInput = document.getElementById('search');
 
-searchInput.addEventListener('keyup', function(){
-    let arr = JSON.parse(localStorage.getItem('Etudiants'));
-    const input = searchInput.value
-    const result = arr.filter(item => item.nom.toLocaleUpperCase().includes(input.toLocaleUpperCase()) || item.prenom.toLocaleUpperCase().includes(input.toLocaleUpperCase()));
-    let sugg = '';
-    let id = 1;
-    if(input !== ""){result.forEach(resultItem => sugg += `
-    <tr class="user ${resultItem.specialite}" id="${id}" onclick="afficheInfo(${resultItem})">
-                <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;object-fit: cover;" src="${resultItem.photo}" alt=""> &nbsp;</td>
-                <td>&nbsp; ${resultItem.nom} &nbsp; ${resultItem.prenom}</td>
-                <td> &nbsp; ${resultItem.email} &nbsp;</td>
-                <td>&nbsp; ${resultItem.specialite}</td>
-                <td>&nbsp; ${resultItem.scolarite}</td>
-            </tr>
-    `)
-user.innerHTML = sugg;
-}
-else{
-    afficherEtudiantDashboard()
-}
-    
-})
-/*Fin*/
 

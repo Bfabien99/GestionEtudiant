@@ -1,3 +1,7 @@
+body , .main{
+    background-color: white !important;
+}
+
 h2{
     color: #1c68da
 }

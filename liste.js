@@ -71,11 +71,11 @@ function editData(rid){
         <div>
             <label for="specialite">Spécialité</label>
             <select name="specialite" id="specialite" >
-                <option value="Aucun">-- spécialité --</option>
+                <option value="${arr[rid].specialite}">${arr[rid].specialite}</option>
                 <option value="flutter">FLUTTER</option>
                 <option value="frontEnd">FRONT-END</option>
                 <option value="javaScript">JAVASCRIPT</option>
-                <option value="marketing">MARKETING DIGITAL</option>
+                <option value="marketing">MARKETING</option>
                 <option value="php">PHP</option>
                 <option value="python">PYTHON</option>
             </select>
@@ -139,7 +139,6 @@ function updateInfo(rid){
 
 /*Affiche les informations de l'Etudiant sélectionner*/
 function afficheInfo(rid){
-	id=rid;
 	let arr=JSON.parse(localStorage.getItem('Etudiants'));
     let mr = 600000 - arr[rid].scolarite;
     contenus.innerHTML = `<div class="afficheInfo">
@@ -149,8 +148,7 @@ function afficheInfo(rid){
             </div>
             <div class="specialite">${arr[rid].specialite}</div>
             <div class="scolarite">
-                <h3>Scolarité</h3>
-                <p class="mv">Montant Versé</p>
+                <p class="mv">Total Versé</p>
                 <p class="somme">${arr[rid].scolarite}</p>
                 <p p class="rp">Reste à payer</p>
                 <p class="somme">${mr}</p>
@@ -190,27 +188,33 @@ const searchInput = document.getElementById('recherche');
 searchInput.addEventListener('keyup', function(){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
     const input = searchInput.value
-    const result = arr.filter(item => item.nom.toLocaleUpperCase().includes(input.toLocaleUpperCase()) || item.prenom.toLocaleUpperCase().includes(input.toLocaleUpperCase()));
     let sugg = '';
     let id = 1;
-    if(input !== ""){result.forEach(resultItem => sugg += `
-    <tr class="user ${resultItem.specialite}" id="${id}" onclick="afficheInfo(${resultItem})">
-                <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;object-fit: cover;" src="${resultItem.photo}" alt=""> &nbsp;</td>
-                <td>&nbsp; ${resultItem.matricule} &nbsp;</td>
-                <td>&nbsp; ${resultItem.nom} &nbsp; ${resultItem.prenom}</td>
-                <td> &nbsp; ${resultItem.date} &nbsp;</td>
-                <td> &nbsp; ${resultItem.contact} &nbsp;</td>
-                <td> &nbsp; ${resultItem.email} &nbsp;</td>
-                <td>&nbsp; ${resultItem.specialite}</td>
-                <td>&nbsp; ${resultItem.scolarite}</td>
-                <td>&nbsp; <button onclick="event.stopPropagation();supStudent(${resultItem})"><span class="fa fa-trash"></span></button> </td>
+    
+    for(etudiant in arr){
+        if (input !== "") {
+            if(arr[etudiant].nom.includes(input.trim().toUpperCase()) || arr[etudiant].prenom.includes(input.trim().toUpperCase())){
+                sugg += `
+                <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].matricule} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].date} &nbsp;</td>
+                <td> &nbsp; ${arr[etudiant].contact} &nbsp;</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+                <td>&nbsp; ${arr[etudiant].scolarite}</td>
+                <td>&nbsp; <button onclick="event.stopPropagation();supStudent(${etudiant})"><span class="fa fa-trash"></span></button> </td>
             </tr>
-    `)
-user.innerHTML = sugg;
-}
-else{
-    afficherEtudiantDashboard()
-}
+                        `
+        }
+                    
+        user.innerHTML = sugg;
+        }
+        else{
+            afficherEtudiantDashboard();
+        }
+    }
     
 })
 /*Fin*/

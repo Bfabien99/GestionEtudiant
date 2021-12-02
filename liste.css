@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     background: rgb(255, 255, 255) !important;
-    border: 5px solid #5898f8d0;
+    border: 5px solid #79B1F9;
     position: relative;
     gap: 1em;
 }
@@ -31,6 +31,7 @@
 }
 
 .title .fa{
+    display: none;
     position: absolute;
     top: 4px;
     right: 0px; 

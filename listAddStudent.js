@@ -12,8 +12,8 @@ const photoEtudiant = document.getElementById('addPhoto');
 
 /*Obtenir l'URL de l'image*/
 photoEtudiant.addEventListener("change",function(){
-    if(this.files[0].size > 1048576){
-        alert("Ooops ! La taille de l'image ne doit pas dépasser 1 mb");
+    if(this.files[0].size > 524288){
+        alert("Ooops ! La taille de l'image ne doit pas dépasser 500 Ko");
         this.value = "";
      }
    else{ const reader = new FileReader();

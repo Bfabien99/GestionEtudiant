@@ -294,14 +294,14 @@ div.listeEtudiant table tr td{
 
 div.listeEtudiant table tbody tr:hover td{
     color: #fff;
-    background: #5c9dff;
+    background: #5c9dff9f;
     cursor: pointer;
     transition: 0.2s;
 }
 
 div.listeEtudiant table tbody tr:hover td:first-child{
     color: #fff;
-    background: #5c9dff;
+    background: #5c9dff9f;
     cursor: pointer;
     transition: 0.2s;
     border-top-left-radius: 20px;
@@ -310,7 +310,7 @@ div.listeEtudiant table tbody tr:hover td:first-child{
 
 div.listeEtudiant table tbody tr:hover td:last-child{
     color: #fff;
-    background: #5c9dff;
+    background: #5c9dff9f;
     cursor: pointer;
     transition: 0.2s;
     border-top-right-radius: 20px;
@@ -349,7 +349,7 @@ div.etudiantParSpecialite div span{
 }
 
 div.etudiantParSpecialite div:hover{
-    background: #1c68da;
+    background: #5c9dffe3;
     color: #fff;
     cursor: pointer;
 }

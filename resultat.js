@@ -24,25 +24,28 @@ const searchInput = document.getElementById('recherche');
 searchInput.addEventListener('keyup', function(){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
     const input = searchInput.value
-    const result = arr.filter(item => item.nom.toLocaleUpperCase().includes(input.toLocaleUpperCase()));
     let sugg = '';
     let id = 1;
-    if(input !== ""){result.forEach(resultItem => sugg += `
-    <tr class="user" id="${id}" onclick="afficheInfo(${resultItem})">
-    <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${resultItem.photo}" alt=""></td>
-    <td>&nbsp;${resultItem.matricule}</td>
-    <td> &nbsp; ${resultItem.nom} &nbsp; ${resultItem.prenom}</td>
-    <td>&nbsp; ${resultItem.specialite}</td>
-    <td>${resultItem.pointObtenu}</td>
-    <td>${resultItem.pointRequi}</td>
-    <td><p class="appreciation ${resultItem.appreciation < 40 ? 'rouge' : (resultItem.appreciation > 40 &&  resultItem.appreciation < 64) ? 'orange' : 'vert'}">${resultItem.appreciation}</p></td>
-</tr>
-    `)
-tbody.innerHTML = sugg;
-}
-else{
-    afficherEtudiantDashboard()
-}
+    for(etudiant in arr){
+        if (input !== "") {
+            if(arr[etudiant].nom.includes(input.trim().toUpperCase()) || arr[etudiant].prenom.includes(input.trim().toUpperCase())){
+                sugg += `
+                <tr class="user" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].matricule}</td>
+                <td> &nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+                <td>${arr[etudiant].pointObtenu}</td>
+                <td>${arr[etudiant].pointRequi}</td>
+                <td><p class="appreciation ${arr[etudiant].appreciation < 40 ? 'rouge' : (arr[etudiant].appreciation > 40 &&  arr[etudiant].appreciation < 64) ? 'orange' : 'vert'}">${arr[etudiant].appreciation}</p></td>
+            </tr>
+                        `}
+        tbody.innerHTML = sugg;
+        }
+        else{
+            afficherEtudiantDashboard();
+        }
+    }
     
 })
 /*Fin*/

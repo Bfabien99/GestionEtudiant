@@ -36,6 +36,7 @@
 }
 
 .top .fa{
+    display: none;
     position: absolute;
     top: 4px;
     right: 0px; 
@@ -141,6 +142,7 @@ div.infoEtudiant{
     background-color: white;
     max-width: 90%;
     border: 1px solid black;
+    overflow: auto;
 }
 
 div.boxs{
@@ -185,12 +187,18 @@ div.boxs div.infoRight p.Appr{
 }
 
 div.boxs div.infoRight{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1em;
 }
 
+div.boxs div.infoRight .fa{
+    font-size: 16px;
+    position: absolute;
+    color: #5C9DFF;
+}
 
 a.add , a.back , a.valider{
     text-align: center;
