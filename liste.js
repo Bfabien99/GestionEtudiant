@@ -27,6 +27,7 @@ function afficherEtudiantDashboard(){
         }
     }
 }
+/*Fin*/
 
 /*Affiche le Formulaire de Modification des informations de l'Etudiant l'Etudiant */
 function editData(rid){
@@ -92,8 +93,9 @@ function editData(rid){
     </div>
     
     <input type="submit" value="Enregistrer" class="submit">
-    <a href="liste.html">annuler</a>
 </form>`;
+
+/*Obtenir l'URL de l'image*/
 const photoEtudiant = document.getElementById('addPhoto');
     photoEtudiant.addEventListener("change",function(){
         const reader = new FileReader();
@@ -105,7 +107,7 @@ const photoEtudiant = document.getElementById('addPhoto');
         reader.readAsDataURL(this.files[0]);
     });
 }
-
+/*Fin*/
 
 /*Changer photo de l'Admin sur le dashboard*/
 let arr = JSON.parse(localStorage.getItem('Admin'));
@@ -133,6 +135,7 @@ function updateInfo(rid){
    
     localStorage.setItem("Etudiants", JSON.stringify(arr));
 }
+/*Fin*/
 
 /*Affiche les informations de l'Etudiant sélectionner*/
 function afficheInfo(rid){
@@ -166,6 +169,7 @@ function afficheInfo(rid){
 <a href="liste.html" class="retour">Retour</a>
 `;
 }
+/*Fin*/
 
 /*Supprimer l'Etudiant */
 function supStudent(rid){
@@ -178,3 +182,35 @@ function supStudent(rid){
         document.location.reload();  
     }
 }
+/*Fin*/
+
+/*Recherché un étudiant*/
+const searchInput = document.getElementById('recherche');
+
+searchInput.addEventListener('keyup', function(){
+    let arr = JSON.parse(localStorage.getItem('Etudiants'));
+    const input = searchInput.value
+    const result = arr.filter(item => item.nom.toLocaleUpperCase().includes(input.toLocaleUpperCase()) || item.prenom.toLocaleUpperCase().includes(input.toLocaleUpperCase()));
+    let sugg = '';
+    let id = 1;
+    if(input !== ""){result.forEach(resultItem => sugg += `
+    <tr class="user ${resultItem.specialite}" id="${id}" onclick="afficheInfo(${resultItem})">
+                <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;object-fit: cover;" src="${resultItem.photo}" alt=""> &nbsp;</td>
+                <td>&nbsp; ${resultItem.matricule} &nbsp;</td>
+                <td>&nbsp; ${resultItem.nom} &nbsp; ${resultItem.prenom}</td>
+                <td> &nbsp; ${resultItem.date} &nbsp;</td>
+                <td> &nbsp; ${resultItem.contact} &nbsp;</td>
+                <td> &nbsp; ${resultItem.email} &nbsp;</td>
+                <td>&nbsp; ${resultItem.specialite}</td>
+                <td>&nbsp; ${resultItem.scolarite}</td>
+                <td>&nbsp; <button onclick="event.stopPropagation();supStudent(${resultItem})"><span class="fa fa-trash"></span></button> </td>
+            </tr>
+    `)
+user.innerHTML = sugg;
+}
+else{
+    afficherEtudiantDashboard()
+}
+    
+})
+/*Fin*/

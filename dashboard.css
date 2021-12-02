@@ -239,6 +239,7 @@ div.etudiantTotal{
     padding: 10px;
     background-color:#fff;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 div.etudiantTotal span{
@@ -420,6 +421,7 @@ div.etudiantParSpecialite div:hover{
 }
 
 .infoRight{
+    position: relative;
     border: 1px solid black;
     display: flex;
     flex-direction:column;
@@ -427,6 +429,13 @@ div.etudiantParSpecialite div:hover{
     align-items: flex-start;
     gap: 2em;
     padding: 10px 13px;
+}
+
+.infoRight .fa{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 16px;
 }
 
 .retour{

@@ -10,17 +10,23 @@ const scolariteEtudiant = document.getElementById('scolarite');
 const photoEtudiant = document.getElementById('addPhoto');
 
 
-
+/*Obtenir l'URL de l'image*/
 photoEtudiant.addEventListener("change",function(){
-    const reader = new FileReader();
+    if(this.files[0].size > 1048576){
+        alert("Ooops ! La taille de l'image ne doit pas dépasser 1 mb");
+        this.value = "";
+     }
+   else{ const reader = new FileReader();
 
     reader.addEventListener('load',(e)=>{
         photoEtudiant.src = reader.result;
     });
 
-    reader.readAsDataURL(this.files[0]);
+    reader.readAsDataURL(this.files[0]);}
 })
+/*Fin*/
 
+/*Valider le formulaire*/
 myForm.addEventListener('submit', function(e){
     e.preventDefault();
 
@@ -38,6 +44,7 @@ myForm.addEventListener('submit', function(e){
     }
 
 })
+/*Fin*/
 
 /*Changer photo de l'Admin sur le dashboard*/
 let arr = JSON.parse(localStorage.getItem('Admin'));
@@ -47,6 +54,8 @@ let arr = JSON.parse(localStorage.getItem('Admin'));
 
     }
 /*Fin*/
+
+/*Créer un matricule pour l'étudiant:la date + le mois + heure + les secondes + année*/
 var date = new Date();
 let id =date.getDate() + "" + date.getMonth() + "" + date.getHours() + "" + date.getSeconds() + "" + date.getFullYear();
 //Sauvegarder les données de l'étudiant
