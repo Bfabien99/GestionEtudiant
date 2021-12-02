@@ -431,7 +431,7 @@ div.etudiantParSpecialite div:hover{
     padding: 10px 13px;
 }
 
-.infoRight .fermer{
+.infoRight .fa{
     position: absolute;
     top: 20px;
     right: 10px;
