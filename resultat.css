@@ -192,19 +192,16 @@ div.boxs div.infoRight{
     flex-direction: column;
     justify-content: center;
     gap: 1em;
-    padding: 20px;
+    padding: 10px;
 }
 
-div.boxs div.infoRight .edit{
+div.boxs div.infoRight .fa-pen{
     background-color: transparent;
-    position: absolute;
-    right: 1px;
-    top: 0px;
+    position: absolute ;
+    right: 10px ;
+    top: 50px ;
     font-size: 16px;
-    position: absolute;
     color: #ff5c5c;
-    width: 20px;
-    height: 20px;
 }
 
 a.add , a.back , a.valider{

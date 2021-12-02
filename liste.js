@@ -160,7 +160,7 @@ function afficheInfo(rid){
             <p>Contact : ${arr[rid].contact}</p>
             <p>Email : ${arr[rid].email}</p>
             <p>Contact Parent : ${arr[rid].contactParent}</p>
-            <button onclick="editData(${rid})"><span class="fa fa-pen"></span></button>
+            <button onclick="editData(${rid})"><span class="fa pen fa-pen"></span></button>
         </div>
     </div>
 </div>

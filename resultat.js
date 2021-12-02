@@ -90,7 +90,7 @@ function afficheInfo(rid){
             <p>Total des points requis : ${arr[rid].pointRequi}</p>
             <p class="specialite"> ${arr[rid].specialite}</p>
             <p class="Appr ${arr[rid].appreciation < 40 ? 'rouge' : (arr[rid].appreciation > 40 &&  arr[rid].appreciation < 64) ? 'orange' : 'vert'}">${arr[rid].appreciation}">Appreciation : ${arr[rid].appreciation}</p>
-            <button onclick="editNote(${rid})" class="edit"><span class="fa fa-pen"></span></button>
+            <button onclick="editNote(${rid})"><span class="fa fa-pen"></span></button>
         </div>
     </div>
     </div>
