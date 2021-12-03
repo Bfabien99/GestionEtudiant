@@ -23,12 +23,13 @@ const searchInput = document.getElementById('recherche');
 
 searchInput.addEventListener('keyup', function(){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
-    const input = searchInput.value
+    const input = searchInput.value.replace(/ /g, "");
     let sugg = '';
     let id = 1;
     for(etudiant in arr){
+        let rech = arr[etudiant].nom + "" + arr[etudiant].prenom.replace(/ /g, "");
         if (input !== "") {
-            if(arr[etudiant].nom.includes(input.trim().toUpperCase()) || arr[etudiant].prenom.includes(input.trim().toUpperCase())){
+            if(rech.includes(input.trim().toUpperCase())){
                 sugg += `
                 <tr class="user" id="${id}" onclick="afficheInfo(${etudiant})">
                 <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>

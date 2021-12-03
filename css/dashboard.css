@@ -445,6 +445,10 @@ div.etudiantParSpecialite div:hover{
     background: rgb(30, 128, 30);
     padding: 2px 10px;
 }
+
+input:invalid{
+    color: red;
+}
 /**/
 
 @media screen and (max-width:850px){

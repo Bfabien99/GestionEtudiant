@@ -12,7 +12,7 @@ function afficherEtudiantDashboard(){
         for (let etudiant in arr) {
             user.innerHTML += `
             <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
-                <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>
+                <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;border-radius:50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>
                 <td>&nbsp; ${arr[etudiant].matricule} &nbsp;</td>
                 <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
                 <td> &nbsp; ${arr[etudiant].date} &nbsp;</td>
@@ -174,10 +174,19 @@ function supStudent(rid){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
     let ind = arr.indexOf(arr[rid]);
     if(confirm(`Voulez vous vraiment supprimer ${arr[rid].nom} ${arr[rid].prenom}` )){
-      arr.splice(ind,1);
-
+        arr.splice(ind,1);
+        const error = document.getElementById('error');
+        error.style.opacity="1"
+        error.innerHTML ="Etudiant supprimé !"
+        error.style.color ="white";
+        error.style.background ="red";
+        error.style.padding="5px 10px"
+        setTimeout(function(){
+            error.innerHTML ="";
+            error.style.opacity="0"
+        },1500)
         localStorage.setItem("Etudiants",JSON.stringify(arr));
-        document.location.reload();  
+        afficherEtudiantDashboard();  
     }
 }
 /*Fin*/
@@ -187,13 +196,15 @@ const searchInput = document.getElementById('recherche');
 
 searchInput.addEventListener('keyup', function(){
     let arr = JSON.parse(localStorage.getItem('Etudiants'));
-    const input = searchInput.value
+    const input = searchInput.value.replace(/ /g, "");
+    
     let sugg = '';
     let id = 1;
     
     for(etudiant in arr){
+        let rech = arr[etudiant].nom + "" + arr[etudiant].prenom.replace(/ /g, "");
         if (input !== "") {
-            if(arr[etudiant].nom.includes(input.trim().toUpperCase()) || arr[etudiant].prenom.includes(input.trim().toUpperCase())){
+            if(rech.includes(input.trim().toUpperCase())){
                 sugg += `
                 <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
                 <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>

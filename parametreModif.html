@@ -86,12 +86,12 @@
                         </div>
                         <div>
                            <label for="nom">Nom</label>
-                        <input type="text" name="nom" id="nom" minlength="2"> 
+                        <input type="text" name="nom" id="nom" minlength="2" pattern="[A-Za-z ]*" title="Le nom doit contenir que des lettres, eviter les accents"> 
                         </div>
                         
                         <div>
                           <label for="prenom">Prenom</label>
-                        <input type="text" name="prenom" id="prenom" minlength="2">  
+                        <input type="text" name="prenom" id="prenom" minlength="2" pattern="[A-Za-z ]*" title="Le nom doit contenir que des lettres, eviter les accents">  
                         </div>
 
                         <div>
@@ -191,7 +191,8 @@ function enregistrerAdmin(){
             error.innerHTML ="Le mot de passe ne correspond pas"
             error.style.color ="red";
         setTimeout(function(){
-            error.innerHTML =""
+            error.innerHTML ="";
+            confirmMp.style.border="1px solid black";
         },1000)
         }
     } else{
@@ -199,7 +200,8 @@ function enregistrerAdmin(){
         error.innerHTML ="Veuillez remplir tous les champs"
         error.style.color ="red";
         setTimeout(function(){
-            error.innerHTML =""
+            error.innerHTML ="";
+            
         },1000)
     }
 }

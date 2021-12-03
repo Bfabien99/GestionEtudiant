@@ -32,10 +32,21 @@ myForm.addEventListener('submit', function(e){
 
     if(nomEtudiant.value.trim()!=="" && prenomEtudiant.value.trim()!=="" && contactsParentEtudiant.value.trim()!=="" && scolariteEtudiant.value.trim()!==""){
         ajouterEtudiant();
+        const error = document.getElementById('error');
+        error.style.opacity="1"
+        error.innerHTML ="Etudiant enregistré !"
+        error.style.color ="white";
+        error.style.background ="green";
+        error.style.padding="20px"
+        setTimeout(function(){
+            error.innerHTML ="";
+            error.style.opacity="0"
+        },1500)
         myForm.reset(); 
     }
     else{
         const error = document.getElementById('error');
+        error.style.opacity="1"
         error.innerHTML ="Veuillez remplir tous les champs"
         error.style.color ="red";
         setTimeout(function(){
@@ -59,15 +70,26 @@ let arr = JSON.parse(localStorage.getItem('Admin'));
 
 /*Créer un matricule pour l'étudiant avec random*/
 let mat = (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1);
-console.log(mat)
+console.log(mat);
+let i = 0;
+let f ;
+if (i <= mat) {
+    i=parseInt(mat);
+    f = "nan"+i;
+    mat+=1;
+}
+
 //Sauvegarder les données de l'étudiant
 function ajouterEtudiant() {
     let etudiant = JSON.parse(localStorage.getItem('Etudiants')) || [];
     let exist = etudiant.length && JSON.parse(localStorage.getItem('Etudiants')).some(data => data.nom.toUpperCase() == nomEtudiant.value.toUpperCase() && data.prenom.toUpperCase() == prenomEtudiant.value.toUpperCase());
     let verif = etudiant.length && JSON.parse(localStorage.getItem('Etudiants')).some(data => data.matricule == mat);
 
-    if (verif) {
+    if (verif < 9999) {
         mat+=1;
+    }
+    else{
+        mat-=1;
     }
 
     if (!exist) {
@@ -81,14 +103,13 @@ function ajouterEtudiant() {
         specialite:specialiteEtudiant.value.toUpperCase(),
         scolarite:scolariteEtudiant.value,
         photo:photoEtudiant.src,
-        matricule:mat,
+        matricule:f,
         pointObtenu: 0,
         pointRequi: 0,
         appreciation:0
     });
 
     localStorage.setItem('Etudiants',JSON.stringify(etudiant));
-    location.href="liste.html";
     }
 
     else{

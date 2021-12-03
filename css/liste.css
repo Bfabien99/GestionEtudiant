@@ -95,6 +95,12 @@
     padding:10px;
 }
 
+#error{
+    z-index: 1;
+    position: relative;
+    top: 100px;
+}
+
 button{
     color: red;
     border: none;

@@ -67,4 +67,167 @@ function afficheInfo(rid){
 
 
 
+//Identifier le nombre d'etudiant
+const nombreEtudiant = document.querySelector('.nombreEtudiant');
+    if (localStorage.getItem('Etudiants')) {
+        nombreEtudiant.innerHTML = JSON.parse(localStorage.getItem('Etudiants')).length;
+    } else {
+            nombreEtudiant.innerHTML = 0;
+        }
+
+const parent = document.querySelector('tbody');
+
+var js = parent.getElementsByClassName("JAVASCRIPT");
+var frontEnd = parent.getElementsByClassName("FRONTEND");
+var marketing = parent.getElementsByClassName("MARKETING");
+var flutter = parent.getElementsByClassName("FLUTTER");
+var php = parent.getElementsByClassName("PHP");
+var python = parent.getElementsByClassName("PYTHON");
+
+document.querySelector('.phpList').innerHTML=`${php.length}`;
+document.querySelector('.javascriptList').innerHTML=`${js.length}`
+document.querySelector('.pythonList').innerHTML=`${python.length}`;
+document.querySelector('.flutterList').innerHTML=`${flutter.length}`;
+document.querySelector('.marketingList').innerHTML=`${marketing.length}`;
+document.querySelector('.frontEndList').innerHTML=`${frontEnd.length}`;
+
+
+
+const specialite = document.querySelectorAll('.etudiantParSpecialite div');
+specialite.forEach(function(el){
+    el.addEventListener('click',function(){
+        let arr = JSON.parse(localStorage.getItem('Etudiants'));
+
+        if(el.classList.contains('php')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "PHP")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }} 
+
+        if(el.classList.contains('frontend')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "FRONTEND")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }}
+
+        if(el.classList.contains('javascript')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "JAVASCRIPT")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }} 
+
+        if(el.classList.contains('python')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "PYTHON")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }}
+
+        if(el.classList.contains('flutter')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "FLUTTER")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }} 
+
+        if(el.classList.contains('marketing')){
+            let id=1;
+            parent.innerHTML = "";
+        for (let etudiant in arr) {
+            if(arr[etudiant].specialite == "MARKETING")
+            {parent.innerHTML += `
+            <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                <td><img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""></td>
+                <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                <td>&nbsp; ${arr[etudiant].specialite}</td>
+            </tr>
+            `;
+            id++;}
+        }}
+        
+
+    })
+})
+
+/*Recherché un étudiant*/
+const searchInput = document.getElementById('search');
+
+searchInput.addEventListener('keyup', function(){
+    let arr = JSON.parse(localStorage.getItem('Etudiants'));
+    const input = searchInput.value.replace(/ /g, "");
+    let sugg = '';
+    let id = 1;
+    for(etudiant in arr){
+        let rech = arr[etudiant].nom + "" + arr[etudiant].prenom.replace(/ /g, "");
+        if (input !== "") {
+            if(rech.includes(input.trim().toUpperCase())){
+                sugg += `
+                        <tr class="user ${arr[etudiant].specialite}" id="${id}" onclick="afficheInfo(${etudiant})">
+                            <td>&nbsp; <img class="photoEtudiant" style="width:50px;height:50px;border-radius: 50%;object-fit: cover;" src="${arr[etudiant].photo}" alt=""> &nbsp;</td>
+                            <td>&nbsp; ${arr[etudiant].nom} &nbsp; ${arr[etudiant].prenom}</td>
+                            <td> &nbsp; ${arr[etudiant].email} &nbsp;</td>
+                            <td>&nbsp; ${arr[etudiant].specialite}</td>
+                            <td>&nbsp; ${arr[etudiant].scolarite}</td>
+                        </tr>
+                        `}
+        user.innerHTML = sugg;
+        }
+        else{
+            afficherEtudiantDashboard();
+        }
+    }
+    
+})
+/*Fin*/
+
+
 
