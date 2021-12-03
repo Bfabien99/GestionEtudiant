@@ -60,7 +60,11 @@ let arr = JSON.parse(localStorage.getItem('Admin'));
 /*Créer un matricule pour l'étudiant:la date + le mois + heure + les secondes + année*/
 
 /*Créer un matricule pour l'étudiant avec random*/
-let mat = (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1);
+
+
+//Sauvegarder les données de l'étudiant
+function ajouterEtudiant() {
+    let mat = (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1);
 console.log(mat);
 let i = 0;
 let f ;
@@ -69,9 +73,6 @@ if (i <= mat) {
     f = "nan"+i;
     mat+=1;
 }
-
-//Sauvegarder les données de l'étudiant
-function ajouterEtudiant() {
     let etudiant = JSON.parse(localStorage.getItem('Etudiants')) || [];
     let exist = etudiant.length && JSON.parse(localStorage.getItem('Etudiants')).some(data => data.nom.toUpperCase() == nomEtudiant.value.toUpperCase() && data.prenom.toUpperCase() == prenomEtudiant.value.toUpperCase());
     let verif = etudiant.length && JSON.parse(localStorage.getItem('Etudiants')).some(data => data.matricule == mat);

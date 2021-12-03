@@ -40,9 +40,9 @@
 
 .tableContainer{
     position: absolute;
-    top: 100px;
+    top: 120px;
     max-width: 90%;
-    max-height: 360px;
+    max-height: 500px;
     padding: 5px;
     overflow: auto;
     border-bottom: 1px solid black;
@@ -98,7 +98,7 @@
 #error{
     z-index: 1;
     position: relative;
-    top: 100px;
+    top: 200px;
 }
 
 button{
