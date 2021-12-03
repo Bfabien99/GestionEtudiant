@@ -32,16 +32,7 @@ myForm.addEventListener('submit', function(e){
 
     if(nomEtudiant.value.trim()!=="" && prenomEtudiant.value.trim()!=="" && contactsParentEtudiant.value.trim()!=="" && scolariteEtudiant.value.trim()!==""){
         ajouterEtudiant();
-        const error = document.getElementById('error');
-        error.style.opacity="1"
-        error.innerHTML ="Etudiant enregistré !"
-        error.style.color ="white";
-        error.style.background ="green";
-        error.style.padding="20px"
-        setTimeout(function(){
-            error.innerHTML ="";
-            error.style.opacity="0"
-        },1500)
+        
         myForm.reset(); 
     }
     else{
@@ -108,12 +99,21 @@ function ajouterEtudiant() {
         pointRequi: 0,
         appreciation:0
     });
-
+    const error = document.getElementById('error');
+        error.style.opacity="1"
+        error.innerHTML ="Etudiant enregistré !"
+        error.style.color ="white";
+        error.style.background ="green";
+        error.style.padding="20px"
+        setTimeout(function(){
+            error.innerHTML ="";
+            error.style.opacity="0"
+        },1500)
     localStorage.setItem('Etudiants',JSON.stringify(etudiant));
     }
 
     else{
-        alert("Desole, l'étudiant existe déja!")
+        alert("Desole, l'étudiant existe déja!");
     }
 
 }
