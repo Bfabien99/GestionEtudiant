@@ -64,7 +64,7 @@ let arr = JSON.parse(localStorage.getItem('Admin'));
 
 //Sauvegarder les données de l'étudiant
 function ajouterEtudiant() {
-    let mat = (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1);
+    let mat = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
 console.log(mat);
 let i = 0;
 let f ;
