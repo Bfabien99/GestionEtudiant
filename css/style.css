@@ -38,12 +38,7 @@ header{
     align-items: center;
     height: 100vh;
     color: white;
-    animation-name: changebg;
-    background: url("dell.jpg") no-repeat center/cover;
-    animation-timing-function: ease-in;
-    animation-duration: 5s;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
+    background: url("../image/note.jpg") no-repeat center/cover;
     padding: 0px 20px;
     font-size: 1.2em;
     width: 100%;
@@ -91,7 +86,7 @@ header a:hover{
 
 section{
     min-height: 90vh;
-    background:url("pc.jpg") no-repeat center/cover;
+    background:url("../image/pc.jpg") no-repeat center/cover;
     width: 100%;
 }
 
@@ -162,12 +157,6 @@ footer{
     width: 100%;
 }
 
-@keyframes changebg{
-    0%{background: url("dell.jpg") no-repeat center/cover;}
-    50%{background: url("note.jpg") no-repeat center/cover;}
-    75%{background: url("pc.jpg") no-repeat center/cover;}
-    100%{background: url("dell.jpg") no-repeat center/cover;}
-}
 
 @media screen and (max-width:850px){
     form{

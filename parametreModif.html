@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="parametreModif.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/parametreModif.css">
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <title>Modification Admin</title>
 </head>
@@ -130,7 +130,7 @@
      
      
 </body>
-<script src="toggle.js"></script>
+<script src="script/toggle.js"></script>
 <script>
 const myForm = document.getElementById('myForm');
 const nom = document.getElementById('nom');
@@ -141,6 +141,7 @@ const newMp = document.getElementById('newPass');
 const confirmMp = document.getElementById('confirmPass');
 const photoAdmin = document.getElementById('photoInput');
 const photoBox = document.querySelector('.photoadmin');
+photoAdmin.src="../image/photo.jpg"
 
 photoAdmin.addEventListener("change",function(){
     const reader = new FileReader();

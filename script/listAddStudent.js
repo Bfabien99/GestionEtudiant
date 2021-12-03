@@ -8,7 +8,7 @@ const contactsParentEtudiant = document.getElementById('contactsParent');
 const specialiteEtudiant = document.getElementById('specialite');
 const scolariteEtudiant = document.getElementById('scolarite');
 const photoEtudiant = document.getElementById('addPhoto');
-
+photoEtudiant.src="../image/photo.jpg";
 
 /*Obtenir l'URL de l'image*/
 photoEtudiant.addEventListener("change",function(){
@@ -56,13 +56,20 @@ let arr = JSON.parse(localStorage.getItem('Admin'));
 /*Fin*/
 
 /*Créer un matricule pour l'étudiant:la date + le mois + heure + les secondes + année*/
-var date = new Date();
-let id =date.getDate() + "" + date.getMonth() + "" + date.getHours() + "" + date.getSeconds() + "" + date.getFullYear();
+
+/*Créer un matricule pour l'étudiant avec random*/
+let mat = (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1) + "" + (Math.floor((Math.random()*9))+1);
+console.log(mat)
 //Sauvegarder les données de l'étudiant
 function ajouterEtudiant() {
     let etudiant = JSON.parse(localStorage.getItem('Etudiants')) || [];
     let exist = etudiant.length && JSON.parse(localStorage.getItem('Etudiants')).some(data => data.nom.toUpperCase() == nomEtudiant.value.toUpperCase() && data.prenom.toUpperCase() == prenomEtudiant.value.toUpperCase());
-    
+    let verif = etudiant.length && JSON.parse(localStorage.getItem('Etudiants')).some(data => data.matricule == mat);
+
+    if (verif) {
+        mat+=1;
+    }
+
     if (!exist) {
         etudiant.push({
         nom:nomEtudiant.value.toUpperCase(),
@@ -74,7 +81,7 @@ function ajouterEtudiant() {
         specialite:specialiteEtudiant.value.toUpperCase(),
         scolarite:scolariteEtudiant.value,
         photo:photoEtudiant.src,
-        matricule:id,
+        matricule:mat,
         pointObtenu: 0,
         pointRequi: 0,
         appreciation:0
